@@ -13,11 +13,11 @@ The component wraps the [@geoapify/geocoder-autocomplete](https://www.npmjs.com/
 |1.0.x| >= 16.8.0|
 
 ## Installation
-@geoapify/react-geocoder-autocomplete has a peer dependancy on **@geoapify-geocoder-autocomplete**:
+@geoapify/react-geocoder-autocomplete has a peer dependancy on **@geoapify/geocoder-autocomplete**:
 ```
-npm install @geoapify-geocoder-autocomplete @geoapify/react-geocoder-autocomplete
+npm install @geoapify/geocoder-autocomplete @geoapify/react-geocoder-autocomplete
 # or 
-yarn add @geoapify-geocoder-autocomplete @geoapify/react-geocoder-autocomplete
+yarn add @geoapify/geocoder-autocomplete @geoapify/react-geocoder-autocomplete
 ```
 
 ## Usage
