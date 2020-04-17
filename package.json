@@ -1,12 +1,13 @@
 {
   "name": "@geoapify/react-geocoder-autocomplete",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React component for the Geoapify Geocoder Autocomplete field",
   "author": {
     "name": "Geoapify GmbH",
     "email": "info@geoapify.com",
     "url": "https://geoapify.com"
   },
+  "keywords": ["react", "reactjs", "geoapify", "geocoding", "address", "autocomplete", "search", "city", "country", "state", "amenity", "location"],
   "license": "MIT",
   "repository": {
     "type": "git",

@@ -8,7 +8,7 @@ The component wraps the [@geoapify/geocoder-autocomplete](https://www.npmjs.com/
 * [Geoapify APIs](https://www.geoapify.com/)
 
 ## Compatiblity table
-|@geoapify/react-geocoder-autocomplete|React|
+|@geoapify/react-geocoder-autocomplete|ReactJS|
 |-|-|
 |1.0.x| >= 16.8.0|
 
