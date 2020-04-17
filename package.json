@@ -1,5 +1,5 @@
 {
-  "name": "react-geocoder-autocomplete",
+  "name": "@geoapify/react-geocoder-autocomplete",
   "version": "1.0.0",
   "description": "React component for the Geoapify Geocoder Autocomplete field",
   "author": {
@@ -8,7 +8,10 @@
     "url": "https://geoapify.com"
   },
   "license": "MIT",
-  "repository": "geoapify/react-geocoder-autocomplete",
+  "repository": {
+    "type": "git",
+    "url": "git+https://git@github.com/geoapify/react-geocoder-autocomplete.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
