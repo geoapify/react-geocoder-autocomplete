@@ -2,7 +2,11 @@
   "name": "react-geocoder-autocomplete",
   "version": "1.0.0",
   "description": "React component for the Geoapify Geocoder Autocomplete field",
-  "author": "Geoapify GmbH",
+  "author": {
+    "name": "Geoapify GmbH",
+    "email": "info@geoapify.com",
+    "url": "https://geoapify.com"
+  },
   "license": "MIT",
   "repository": "geoapify/react-geocoder-autocomplete",
   "main": "dist/index.js",
@@ -24,7 +28,8 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^16.0.0",
+    "@geoapify/geocoder-autocomplete": "^1.0.2"
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",
@@ -49,7 +54,8 @@
     "prettier": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^3.4.1",
+    "@geoapify/geocoder-autocomplete": "^1.0.2"
   },
   "files": [
     "dist"

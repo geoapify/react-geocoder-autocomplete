@@ -1,13 +1,13 @@
 {
   "name": "react-geocoder-autocomplete-example",
-  "homepage": "https://Geoapify GmbH.github.io/react-geocoder-autocomplete",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "@geoapify/geocoder-autocomplete": "file:../../geocoder-autocomplete/geoapify-geocoder-autocomplete-1.0.2.tgz",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
-    "react-scripts": "file:../node_modules/react-scripts",
-    "react-geocoder-autocomplete": "file:.."
+    "react-geocoder-autocomplete": "file:..",
+    "react-scripts": "file:../node_modules/react-scripts"
   },
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
