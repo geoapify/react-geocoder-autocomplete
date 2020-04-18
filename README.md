@@ -1,5 +1,5 @@
-# ReactJS compoment for Geoapify Geocoder Autocomplete
-The component wraps the [@geoapify/geocoder-autocomplete](https://www.npmjs.com/package/@geoapify/geocoder-autocomplete) library into a ReactJS component.
+# React compoment for Geoapify Geocoder Autocomplete
+The component wraps the [@geoapify/geocoder-autocomplete](https://www.npmjs.com/package/@geoapify/geocoder-autocomplete) library into a React component.
 
 ## Geoapify Geocoding API documentation
 * [Geocoding API Documentation](https://apidocs.geoapify.com/docs/geocoding)
@@ -8,7 +8,7 @@ The component wraps the [@geoapify/geocoder-autocomplete](https://www.npmjs.com/
 * [Geoapify APIs](https://www.geoapify.com/)
 
 ## Compatiblity table
-|@geoapify/react-geocoder-autocomplete|ReactJS|
+|@geoapify/react-geocoder-autocomplete|React|
 |-|-|
 |1.0.x| >= 16.8.0|
 
@@ -55,6 +55,7 @@ const App = () => {
         position={position}
         countryCodes={countryCodes}
         limit={limit}
+        value={displayValue}
         placeSelect={onPlaceSelect}
         suggestionsChange={onSuggectionChange}
         />

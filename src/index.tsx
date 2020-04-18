@@ -10,7 +10,8 @@ export const GeoapifyContext = (props: any) => {
 }
 
 export interface GeoapifyGeocoderAutocompleteOptions extends GeocoderAutocompleteOptions {
-  placeSelect: (value: any) => {},
+  value: string;
+  placeSelect: (value: any) => {};
   suggestionsChange: (value: any) => {}
 }
 
@@ -20,6 +21,7 @@ export const GeoapifyGeocoderAutocomplete = ({ placeholder: placeholderValue,
   position: positionValue,
   countryCodes: countryCodesValue,
   limit: limitValue,
+  value: valueValue,
   placeSelect: placeSelectCallback,
   suggestionsChange: suggestionsChangeCallback}: GeoapifyGeocoderAutocompleteOptions) => {
   const apiKey = React.useContext<string>(GeoapifyApiKey);
@@ -89,6 +91,13 @@ export const GeoapifyGeocoderAutocomplete = ({ placeholder: placeholderValue,
       geocoderAutocomplete.current.setLimit(limitValue as number);
     }
   }, [limitValue]);
+
+  useEffect(() => {
+    if (geocoderAutocomplete.current) {
+      geocoderAutocomplete.current.setValue(valueValue as string);
+    }
+  }, [valueValue]);
+
 
   return <div className="geocoder-container" style={{ 'position': 'relative' }} ref={el => geocoderContainer = el}></div>
 }

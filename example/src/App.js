@@ -9,6 +9,7 @@ const App = () => {
   const [position, setPosition] = useState();
   const [countryCodes, setCountryCodes] = useState();
   const [limit, setLimit] = useState();
+  const [value, setValue] = useState();
 
   function handleTypeChange(event) {
     setType(event.target.value);
@@ -44,6 +45,10 @@ const App = () => {
 
   function handleLimitChange(event) {
     setLimit(event.target.value);
+  }
+
+  function handleValueChange(event) {
+    setValue(event.target.value);
   }
 
   function onPlaceSelect(value) {
@@ -90,8 +95,16 @@ const App = () => {
       <input type="radio" value="10" name="limit" /> 10
     </div>
 
+    <div className="setting" onChange={handleValueChange}>
+      <span className="label">Value:</span>
+      <input type="radio" value="Munich" name="value" /> Munich
+      <input type="radio" value="New York" name="value" /> New York
+      <input type="radio" value="Sydney" name="value" /> Sydney
+    </div>
+
     <GeoapifyContext apiKey="00a9862ac01f454887fc285e220d8460">
       <GeoapifyGeocoderAutocomplete placeholder="Enter address here"
+        value={value}
         type={type}
         lang={language}
         position={position}
