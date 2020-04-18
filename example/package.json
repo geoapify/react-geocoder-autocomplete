@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@geoapify/geocoder-autocomplete": "file:../node_modules/@geoapify/geocoding-autocomplete",
+    "@geoapify/geocoder-autocomplete": "file:../node_modules/@geoapify/geocoder-autocomplete",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
-    "react-geocoder-autocomplete": "file:..",
+    "@geoapify/react-geocoder-autocomplete": "file:..",
     "react-scripts": "file:../node_modules/react-scripts"
   },
   "scripts": {

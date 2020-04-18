@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { GeoapifyGeocoderAutocomplete, GeoapifyContext } from 'react-geocoder-autocomplete'
+import { GeoapifyGeocoderAutocomplete, GeoapifyContext } from '@geoapify/react-geocoder-autocomplete'
 import '@geoapify/geocoder-autocomplete/styles/minimal.css'
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
   const [position, setPosition] = useState();
   const [countryCodes, setCountryCodes] = useState();
   const [limit, setLimit] = useState();
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('');
 
   function handleTypeChange(event) {
     setType(event.target.value);

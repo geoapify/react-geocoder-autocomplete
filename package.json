@@ -49,11 +49,11 @@
     "@geoapify/geocoder-autocomplete": "^1.0.2"
   },
   "devDependencies": {
+    "@geoapify/geocoder-autocomplete": "^1.0.4",
     "@types/jest": "^25.1.4",
     "@types/react": "^16.9.27",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
-    "microbundle-crl": "^0.13.8",
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
@@ -67,12 +67,12 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^2.2.0",
+    "microbundle-crl": "^0.13.8",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1",
-    "@geoapify/geocoder-autocomplete": "^1.0.2"
+    "react-scripts": "^3.4.1"
   },
   "files": [
     "dist"
