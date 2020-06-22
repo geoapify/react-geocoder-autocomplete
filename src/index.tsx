@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, MutableRefObject } from 'react';
-import { GeocoderAutocomplete, LocationType, SupportedLanguage, GeoPosition, CountyCode } from '@geoapify/geocoder-autocomplete';
-import { ByCountryCodeOptions, ByCircleOptions, ByRectOptions, ByProximityOptions } from '@geoapify/geocoder-autocomplete/dist/autocomplete';
+import { GeocoderAutocomplete, LocationType, SupportedLanguage, GeoPosition, CountyCode, ByCountryCodeOptions, ByCircleOptions, ByRectOptions, ByProximityOptions } from '@geoapify/geocoder-autocomplete';
 
 export const GeoapifyApiKey = React.createContext<string>('');
 
