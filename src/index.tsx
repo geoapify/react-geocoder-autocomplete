@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, MutableRefObject } from 'react';
-import { GeocoderAutocompleteOptions, GeocoderAutocomplete, LocationType, SupportedLanguage, GeoPosition, CountyCode } from '@geoapify/geocoder-autocomplete';
+import { GeocoderAutocomplete, LocationType, SupportedLanguage, GeoPosition, CountyCode } from '@geoapify/geocoder-autocomplete';
+import { ByCountryCodeOptions, ByCircleOptions, ByRectOptions, ByProximityOptions } from '@geoapify/geocoder-autocomplete/dist/autocomplete';
 
 export const GeoapifyApiKey = React.createContext<string>('');
 
@@ -9,8 +10,22 @@ export const GeoapifyContext = (props: any) => {
   </GeoapifyApiKey.Provider>
 }
 
-export interface GeoapifyGeocoderAutocompleteOptions extends GeocoderAutocompleteOptions {
-  value: string;
+export interface GeoapifyGeocoderAutocompleteOptions {
+  value?: string;
+  type?: LocationType;
+  lang?: SupportedLanguage;
+  limit?: number;
+  placeholder?: string;
+  filterByCountryCode?: ByCountryCodeOptions,
+  filterByCircle?: ByCircleOptions,
+  filterByRect?: ByRectOptions,
+  biasByCountryCode?: ByCountryCodeOptions,
+  biasByCircle?: ByCircleOptions,
+  biasByRect?: ByRectOptions,
+  biasByProximity?: ByProximityOptions,
+  position?: GeoPosition,
+  countryCodes?: CountyCode[],
+
   placeSelect: (value: any) => {};
   suggestionsChange: (value: any) => {}
 }
@@ -18,10 +33,18 @@ export interface GeoapifyGeocoderAutocompleteOptions extends GeocoderAutocomplet
 export const GeoapifyGeocoderAutocomplete = ({ placeholder: placeholderValue,
   type: typeValue,
   lang: langValue,
-  position: positionValue,
-  countryCodes: countryCodesValue,
   limit: limitValue,
   value: valueValue,
+  filterByCountryCode: filterByCountryCodeValue,
+  filterByCircle: filterByCircleValue,
+  filterByRect: filterByRectValue,
+  biasByCountryCode: biasByCountryCodeValue,
+  biasByCircle: biasByCircleValue,
+  biasByRect: biasByRectValue,
+  biasByProximity: biasByProximityValue,
+  position: positionValue,
+  countryCodes: countryCodesValue,
+
   placeSelect: placeSelectCallback,
   suggestionsChange: suggestionsChangeCallback}: GeoapifyGeocoderAutocompleteOptions) => {
   const apiKey = React.useContext<string>(GeoapifyApiKey);
@@ -55,7 +78,7 @@ export const GeoapifyGeocoderAutocomplete = ({ placeholder: placeholderValue,
     initialized = true;
 
     geocoderAutocomplete.current = new GeocoderAutocomplete(geocoderContainer as HTMLDivElement, apiKey, {
-      placeholder: placeholderValue
+      placeholder: placeholderValue || ''
     });
 
     geocoderAutocomplete.current.on('select', onSelect);
@@ -76,13 +99,15 @@ export const GeoapifyGeocoderAutocomplete = ({ placeholder: placeholderValue,
 
   useEffect(() => {
     if (geocoderAutocomplete.current) {
-      geocoderAutocomplete.current.setPosition(positionValue as GeoPosition);
+      console.warn("WARNING! Obsolete function called. The  'position' input has been deprecated, please use the new 'biasByLocation' input instead!");
+      geocoderAutocomplete.current.addBiasByProximity(positionValue as GeoPosition);
     }
   }, [positionValue]);
 
   useEffect(() => {
     if (geocoderAutocomplete.current) {
-      geocoderAutocomplete.current.setCountryCodes(countryCodesValue as CountyCode[]);
+      console.warn("WARNING! Obsolete function called. The  'countryCodes' input has been deprecated, please use the new 'filterByCountryCode' input instead!");
+      geocoderAutocomplete.current.addFilterByCountry(countryCodesValue as CountyCode[]);
     }
   }, [countryCodesValue]);
 
@@ -94,10 +119,51 @@ export const GeoapifyGeocoderAutocomplete = ({ placeholder: placeholderValue,
 
   useEffect(() => {
     if (geocoderAutocomplete.current) {
-      geocoderAutocomplete.current.setValue(valueValue as string);
+      geocoderAutocomplete.current.setValue(valueValue as string || '');
     }
   }, [valueValue]);
 
+  useEffect(() => {
+    if (geocoderAutocomplete.current) {
+      geocoderAutocomplete.current.addFilterByCountry(filterByCountryCodeValue as ByCountryCodeOptions);
+    }
+  }, [filterByCountryCodeValue]);
+
+  useEffect(() => {
+    if (geocoderAutocomplete.current) {
+      geocoderAutocomplete.current.addFilterByCircle(filterByCircleValue as ByCircleOptions);
+    }
+  }, [filterByCircleValue]);
+
+  useEffect(() => {
+    if (geocoderAutocomplete.current) {
+      geocoderAutocomplete.current.addFilterByRect(filterByRectValue as ByRectOptions);
+    }
+  }, [filterByRectValue]);
+
+  useEffect(() => {
+    if (geocoderAutocomplete.current) {
+      geocoderAutocomplete.current.addBiasByCountry(biasByCountryCodeValue as ByCountryCodeOptions);
+    }
+  }, [biasByCountryCodeValue]);
+
+  useEffect(() => {
+    if (geocoderAutocomplete.current) {
+      geocoderAutocomplete.current.addBiasByCircle(biasByCircleValue as ByCircleOptions);
+    }
+  }, [biasByCircleValue]);
+
+  useEffect(() => {
+    if (geocoderAutocomplete.current) {
+      geocoderAutocomplete.current.addBiasByRect(biasByRectValue as ByRectOptions);
+    }
+  }, [biasByRectValue]);
+
+  useEffect(() => {
+    if (geocoderAutocomplete.current) {
+      geocoderAutocomplete.current.addBiasByProximity(biasByProximityValue as ByProximityOptions);
+    }
+  }, [biasByProximityValue]);
 
   return <div className="geocoder-container" style={{ 'position': 'relative' }} ref={el => geocoderContainer = el}></div>
 }
