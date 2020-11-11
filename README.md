@@ -1,17 +1,26 @@
 # React compoment for Geoapify Geocoder Autocomplete
 The component wraps the [@geoapify/geocoder-autocomplete](https://www.npmjs.com/package/@geoapify/geocoder-autocomplete) library into a React component.
 
-## Geoapify Geocoding API documentation
+## Geoapify Geocoding API
+The component uses Geoapify Geocoding API for address search.
 * [Geocoding API Documentation](https://apidocs.geoapify.com/docs/geocoding)
 * [Geocoding API Playground](https://apidocs.geoapify.com/playground/geocoding)
 * [Register and get Geoapify API key](https://myprojects.geoapify.com)
 * [Geoapify APIs](https://www.geoapify.com/)
+
+## Geoapify Place Details API
+On user select events the Place Details API is called to provide more details for the selected place and it's geometry.
+Note, that the Place Deatils API call costs additional "Geocoding & Places" request. Use the `skipDetails` option to skip the Places Details API call.
+* [Place Details API Documentation](https://apidocs.geoapify.com/docs/place-details)
+* [Place Details API Playground](https://apidocs.geoapify.com/playground/place-details)
+
 
 ## Compatiblity table
 |@geoapify/react-geocoder-autocomplete|React|
 |-|-|
 |1.0.x| >= 16.8.0|
 |1.1.x| >= 16.8.0|
+|1.2.x| >= 17.1.0|
 
 ## Installation
 @geoapify/react-geocoder-autocomplete has a peer dependancy on **@geoapify/geocoder-autocomplete**:
@@ -95,6 +104,8 @@ export default App
 | biasByCircle | ByCircleOptions | First, search places inside the circle |
 | biasByRect | ByRectOptions | First, search places inside the rectangle |
 | biasByProximity | ByProximityOptions | Prioritize results by farness from the location |
+| skipIcons | boolean | Don't add icons to suggestions |
+| skipDetails | boolean | Skip Place Details API call on selection change |
 | ~~position~~ | GeoPosition | Prefered search position |
 | ~~countryCodes~~ | CountyCode[] | Limit the search by countries |
 

@@ -201,6 +201,8 @@ const App = () => {
         biasByProximity={biasByProximity}
         placeSelect={onPlaceSelect}
         suggestionsChange={onSuggectionChange}
+        skipIcons={true}
+        skipDetails={true}
       />
     </GeoapifyContext>
   </div>
