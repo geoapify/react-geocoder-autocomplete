@@ -71,18 +71,27 @@ export const GeoapifyGeocoderAutocomplete = ({
   let geocoderAutocomplete: MutableRefObject<
     GeocoderAutocomplete | undefined
   > = useRef<GeocoderAutocomplete>();
+  const placeSelectCallbackRef: MutableRefObject<
+    ((value: any) => {}) | undefined
+  > = useRef<(value: any) => {}>();
+  const suggestionsChangeCallbackRef: MutableRefObject<
+    ((value: any) => {}) | undefined
+  > = useRef<(value: any) => {}>();
 
-  function onSelect(value: any) {
-    if (placeSelectCallback) {
-      placeSelectCallback(value);
-    }
-  }
+  placeSelectCallbackRef.current = placeSelectCallback;
+  suggestionsChangeCallbackRef.current =  suggestionsChangeCallback;
 
-  function onSuggestions(value: any) {
-    if (suggestionsChangeCallback) {
-      suggestionsChangeCallback(value);
+  const onSelect = React.useCallback((value: any) => {
+    if (placeSelectCallbackRef.current) {
+      placeSelectCallbackRef.current(value);
     }
-  }
+  },[]);
+
+  const onSuggestions = React.useCallback((value: any) => {
+    if (suggestionsChangeCallbackRef.current) {
+      suggestionsChangeCallbackRef.current(value);
+    }
+  },[]);
 
   useEffect(() => {
     if (initialized) {
