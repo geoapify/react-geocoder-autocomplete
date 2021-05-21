@@ -117,6 +117,29 @@ const App = () => {
     console.log(value);
   }
 
+  function preprocessHook(value) {
+    return `${value}, Munich, Germany`
+  }
+
+  function postprocessHook(feature) {
+    return feature.properties.street;
+  }
+
+  function suggestionsFilter(suggestions) {
+    const processedStreets = [];
+
+    const filtered = suggestions.filter(value => {
+      if (!value.properties.street || processedStreets.indexOf(value.properties.street) >= 0) {
+        return false;
+      } else {
+        processedStreets.push(value.properties.street);
+        return true;
+      }
+    })
+
+    return filtered;
+  }
+
   return <div>
     <div className="setting" onChange={handleTypeChange}>
       <span className="label">Location type:</span>
@@ -204,6 +227,15 @@ const App = () => {
         skipIcons={true}
         skipDetails={true}
       />
+
+      <GeoapifyGeocoderAutocomplete
+        placeSelect={onPlaceSelect}
+        suggestionsChange={onSuggectionChange}
+        preprocessHook={preprocessHook}
+        postprocessHook={postprocessHook}
+        suggestionsFilter={suggestionsFilter}
+      />
+
     </GeoapifyContext>
   </div>
 }

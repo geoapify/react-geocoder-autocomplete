@@ -20,8 +20,8 @@ Note, that the Place Deatils API call costs additional "Geocoding & Places" requ
 |-|-|
 |1.0.x| >= 16.8.0|
 |1.1.x| >= 16.8.0|
-|1.2.x| >= 17.1.0|
-
+|1.2.x| >= 17.0.0|
+|1.3.x| >= 17.0.0|
 ## Installation
 @geoapify/react-geocoder-autocomplete has a peer dependancy on **@geoapify/geocoder-autocomplete**:
 ```
@@ -58,6 +58,29 @@ const App = () => {
     console.log(value);
   }
 
+  function preprocessHook(value) {
+    return `${value}, Munich, Germany`
+  }
+
+  function postprocessHook(feature) {
+    return feature.properties.street;
+  }
+
+  function suggestionsFilter(suggestions) {
+    const processedStreets = [];
+
+    const filtered = suggestions.filter(value => {
+      if (!value.properties.street || processedStreets.indexOf(value.properties.street) >= 0) {
+        return false;
+      } else {
+        processedStreets.push(value.properties.street);
+        return true;
+      }
+    })
+
+    return filtered;
+  }
+
   return <GeoapifyContext apiKey="YOUR_API_KEY_HERE">
 
       <GeoapifyGeocoderAutocomplete
@@ -81,6 +104,14 @@ const App = () => {
         biasByProximity={biasByProximity}
         placeSelect={onPlaceSelect}
         suggestionsChange={onSuggectionChange}
+      />
+
+      <GeoapifyGeocoderAutocomplete
+        placeSelect={onPlaceSelect}
+        suggestionsChange={onSuggectionChange}
+        preprocessHook={preprocessHook}
+        postprocessHook={postprocessHook}
+        suggestionsFilter={suggestionsFilter}
       />
     </GeoapifyContext>
 }
@@ -150,3 +181,10 @@ Properties of the feature contain information about address and location.
 Learn more about Geocoder result properties on [Geoapify Documentation page](https://apidocs.geoapify.com/docs/geocoding/).
 
 The component doesn't have dependancy on [@types/geojson](https://www.npmjs.com/package/@types/geojson). However, you can install it to work with GeoJSON types.
+
+### Hooks and filters
+| Name | Description |
+|-|-|
+| preprocessingHook | Modify the text to search. For example, if you expect that the user enters a street name you can add a city or postcode to search streets in the city. |
+| postprocessingHook | Modify the text that will be displayed in the input field and suggestions list. For example, you can show only a street name. |
+| suggestionsFilter | Filtering some suggestions. It lets to avoid duplicated results when you modify the address with a post-process hook. For example, suggestions may contain several addresses with the same street name, they will be duplicated when not the whole address but only the street name is shown. |

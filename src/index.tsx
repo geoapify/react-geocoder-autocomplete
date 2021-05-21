@@ -42,6 +42,10 @@ export interface GeoapifyGeocoderAutocompleteOptions {
 
   placeSelect: (value: any) => {};
   suggestionsChange: (value: any) => {};
+
+  preprocessHook: (value: string) => string;
+  postprocessHook: (feature: any) => string;
+  suggestionsFilter: (suggestions: any[]) => any[];
 }
 
 export const GeoapifyGeocoderAutocomplete = ({
@@ -61,7 +65,9 @@ export const GeoapifyGeocoderAutocomplete = ({
   countryCodes: countryCodesValue,
   skipIcons: skipIconsValue,
   skipDetails: skipDetailsValue,
-
+  preprocessHook: preprocessHookValue,
+  postprocessHook: postprocessHookValue,
+  suggestionsFilter: suggestionsFilterValue,
   placeSelect: placeSelectCallback,
   suggestionsChange: suggestionsChangeCallback,
 }: GeoapifyGeocoderAutocompleteOptions) => {
@@ -72,17 +78,27 @@ export const GeoapifyGeocoderAutocomplete = ({
     GeocoderAutocomplete | undefined
   > = useRef<GeocoderAutocomplete>();
 
-  function onSelect(value: any) {
-    if (placeSelectCallback) {
-      placeSelectCallback(value);
-    }
-  }
+  const placeSelectCallbackRef: MutableRefObject<
+    ((value: any) => {}) | undefined
+  > = useRef<(value: any) => {}>();
+  const suggestionsChangeCallbackRef: MutableRefObject<
+    ((value: any) => {}) | undefined
+  > = useRef<(value: any) => {}>();
 
-  function onSuggestions(value: any) {
-    if (suggestionsChangeCallback) {
-      suggestionsChangeCallback(value);
+  placeSelectCallbackRef.current = placeSelectCallback;
+  suggestionsChangeCallbackRef.current =  suggestionsChangeCallback;
+
+  const onSelect = React.useCallback((value: any) => {
+    if (placeSelectCallbackRef.current) {
+      placeSelectCallbackRef.current(value);
     }
-  }
+  },[]);
+
+  const onSuggestions = React.useCallback((value: any) => {
+    if (suggestionsChangeCallbackRef.current) {
+      suggestionsChangeCallbackRef.current(value);
+    }
+  },[]);
 
   useEffect(() => {
     if (initialized) {
@@ -211,6 +227,30 @@ export const GeoapifyGeocoderAutocomplete = ({
       );
     }
   }, [biasByProximityValue]);
+
+  useEffect(() => {
+    if (geocoderAutocomplete.current) {
+      geocoderAutocomplete.current.setPreprocessHook(
+        preprocessHookValue
+      );
+    }
+  }, [preprocessHookValue]);
+
+  useEffect(() => {
+    if (geocoderAutocomplete.current) {
+      geocoderAutocomplete.current.setPostprocessHook(
+        postprocessHookValue
+      );
+    }
+  }, [postprocessHookValue]);
+
+  useEffect(() => {
+    if (geocoderAutocomplete.current) {
+      geocoderAutocomplete.current.setSuggestionsFilter(
+        suggestionsFilterValue
+      );
+    }
+  }, [suggestionsFilterValue]);
 
   return (
     <div
