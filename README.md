@@ -1,12 +1,12 @@
 # React compoment for Geoapify Geocoder Autocomplete
-The component wraps the [@geoapify/geocoder-autocomplete](https://www.npmjs.com/package/@geoapify/geocoder-autocomplete) library into a React component.
+The component wraps the [@geoapify/geocoder-autocomplete](https://www.npmjs.com/package/@geoapify/geocoder-autocomplete) library into a React component. The library uses [Geoapify Geocoding Autocomplete](https://www.geoapify.com/address-autocomplete/) as an address search service.
 
-## Geoapify Geocoding API
+## Geoapify Geocoding Autocomplete API
 The component uses Geoapify Geocoding API for address search.
-* [Geocoding API Documentation](https://apidocs.geoapify.com/docs/geocoding)
-* [Geocoding API Playground](https://apidocs.geoapify.com/playground/geocoding)
+* [Documentation](https://apidocs.geoapify.com/docs/geocoding)
+* [Playground](https://apidocs.geoapify.com/playground/geocoding#autocomplete)
 * [Register and get Geoapify API key](https://myprojects.geoapify.com)
-* [Geoapify APIs](https://www.geoapify.com/)
+* [Geoapify Location Platform](https://www.geoapify.com/)
 
 ## Geoapify Place Details API
 On user select events the Place Details API is called to provide more details for the selected place and it's geometry.
@@ -33,7 +33,7 @@ yarn add @geoapify/geocoder-autocomplete @geoapify/react-geocoder-autocomplete
 ## Usage
 You need an API key to be able to call Geoapify Geocoding API. 
 Register and get an API key for Free on [myprojects.geoapify.com](https://myprojects.geoapify.com/).
-Geoapify has [Freemium pricing model](https://www.geoapify.com/api-pricing/). You can start for Free and extend when you need.
+Geoapify has [Freemium pricing model](https://www.geoapify.com/pricing/). You can start for Free and extend when you need.
 
 1. Import styles
 Import CSS style file from **@geoapify-geocoder-autocomplete** to make the control appear correctly. You can choose from several stylings:
