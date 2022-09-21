@@ -140,6 +140,18 @@ const App = () => {
     return filtered;
   }
 
+  function onUserInput(input) {
+    console.log(input);
+  }
+
+  function onOpen(opened) {
+    console.log(opened);
+  }
+
+  function onClose(opened) {
+    console.log(opened);
+  }
+
   return <div>
     <div className="setting" onChange={handleTypeChange}>
       <span className="label">Location type:</span>
@@ -206,6 +218,9 @@ const App = () => {
       <GeoapifyGeocoderAutocomplete
         placeSelect={onPlaceSelect}
         suggestionsChange={onSuggectionChange}
+        onUserInput={onUserInput}
+        onOpen={onOpen}
+        onClose={onClose}
       />
 
       <GeoapifyGeocoderAutocomplete placeholder="Enter address here"
@@ -233,7 +248,7 @@ const App = () => {
         suggestionsChange={onSuggectionChange}
         preprocessHook={preprocessHook}
         postprocessHook={postprocessHook}
-        suggestionsFilter={suggestionsFilter}
+        suggestionsFilter={suggestionsFilter}        
       />
 
     </GeoapifyContext>

@@ -22,6 +22,7 @@ Note, that the Place Deatils API call costs additional "Geocoding & Places" requ
 |1.1.x| >= 16.8.0|
 |1.2.x| >= 17.0.0|
 |1.3.x| >= 17.0.0|
+|1.4.x| >= 18.0.0|
 ## Installation
 @geoapify/react-geocoder-autocomplete has a peer dependancy on **@geoapify/geocoder-autocomplete**:
 ```
@@ -137,8 +138,6 @@ export default App
 | biasByProximity | ByProximityOptions | Prioritize results by farness from the location |
 | skipIcons | boolean | Don't add icons to suggestions |
 | skipDetails | boolean | Skip Place Details API call on selection change |
-| ~~position~~ | GeoPosition | Prefered search position |
-| ~~countryCodes~~ | CountyCode[] | Limit the search by countries |
 
 You can use several filters at once. The **AND** logic is applied to multiple filters.
 
@@ -175,7 +174,10 @@ export type CountyCode = "none"| "auto" | "ad" | "ae" | "af" | "ag" | "ai" | "al
 | Name | Description | Value type |
 |-|-|-|
 | placeSelect | Fired when a location was selected | [GeoJSON.Feature](https://geojson.org/) |
-| suggestionsChange | Fired on new suggestions | [GeoJSON.Feature[]] (https://geojson.org/) |
+| suggestionsChange | Fired on new suggestions | [GeoJSON.Feature[]](https://geojson.org/) |
+| onUserInput | Fired on user input | string |
+| onOpen | Fired on dropdown list open | |
+| onClose | Fired on dropdownlist close | |
 
 Properties of the feature contain information about address and location.
 Learn more about Geocoder result properties on [Geoapify Documentation page](https://apidocs.geoapify.com/docs/geocoding/).
