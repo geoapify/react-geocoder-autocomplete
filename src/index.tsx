@@ -28,6 +28,7 @@ export interface GeoapifyGeocoderAutocompleteOptions {
   limit?: number;
   placeholder?: string;
   filterByCountryCode?: ByCountryCodeOptions;
+  filterByPlace?: string;
   filterByCircle?: ByCircleOptions;
   filterByRect?: ByRectOptions;
   biasByCountryCode?: ByCountryCodeOptions;
@@ -39,6 +40,9 @@ export interface GeoapifyGeocoderAutocompleteOptions {
 
   skipIcons?: boolean;
   skipDetails?: boolean;
+  skipSelectionOnArrowKey?: boolean;
+  allowNonVerifiedHouseNumber?: boolean;
+  allowNonVerifiedStreet?: boolean;
 
   placeSelect?: (value: any) => void;
   suggestionsChange?: (value: any) => void;
@@ -61,6 +65,7 @@ export const GeoapifyGeocoderAutocomplete = ({
   filterByCountryCode: filterByCountryCodeValue,
   filterByCircle: filterByCircleValue,
   filterByRect: filterByRectValue,
+  filterByPlace: filterByPlaceValue,
   biasByCountryCode: biasByCountryCodeValue,
   biasByCircle: biasByCircleValue,
   biasByRect: biasByRectValue,
@@ -68,6 +73,9 @@ export const GeoapifyGeocoderAutocomplete = ({
   position: positionValue,
   countryCodes: countryCodesValue,
   skipIcons: skipIconsValue,
+  skipSelectionOnArrowKey: skipSelectionOnArrowKeyValue,
+  allowNonVerifiedHouseNumber: allowNonVerifiedHouseNumberValue,
+  allowNonVerifiedStreet: allowNonVerifiedStreetValue,
   skipDetails: skipDetailsValue,
   preprocessHook: preprocessHookValue,
   postprocessHook: postprocessHookValue,
@@ -163,7 +171,10 @@ export const GeoapifyGeocoderAutocomplete = ({
       {
         placeholder: placeholderValue || "",
         skipDetails: skipDetailsValue,
-        skipIcons: skipIconsValue
+        skipIcons: skipIconsValue,
+        skipSelectionOnArrowKey: skipSelectionOnArrowKeyValue,
+        allowNonVerifiedHouseNumber: allowNonVerifiedHouseNumberValue,
+        allowNonVerifiedStreet: allowNonVerifiedStreetValue,
       }
     );
 
@@ -240,6 +251,14 @@ export const GeoapifyGeocoderAutocomplete = ({
     if (geocoderAutocomplete.current) {
       geocoderAutocomplete.current.addFilterByRect(
         filterByRectValue as ByRectOptions
+      );
+    }
+  }, [filterByRectValue]);
+
+  useEffect(() => {
+    if (geocoderAutocomplete.current) {
+      geocoderAutocomplete.current.addFilterByPlace(
+        filterByPlaceValue as string
       );
     }
   }, [filterByRectValue]);
