@@ -130,6 +130,7 @@ export default App
 | lang | SupportedLanguage | Results language |
 | limit | number | The maximal number of returned suggestions |
 | placeholder | string | An input field placeholder |
+| debounceDelay | number | A delay between user input and the API call to prevent unnecessary calls. The default value is 100ms. |
 | filterByCountryCode | ByCountryCodeOptions | Search places in the countries |
 | filterByCircle | ByCircleOptions | Search places inside the circle |
 | filterByRect | ByRectOptions | Search places inside the rectangle |

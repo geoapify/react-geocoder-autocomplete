@@ -8,6 +8,7 @@ const App = () => {
   const [language, setLanguage] = useState();
   const [position, setPosition] = useState();
   const [countryCodes, setCountryCodes] = useState();
+  const [debounceDelay, setDebounceDelay] = useState();
   const [limit, setLimit] = useState();
   const [value, setValue] = useState('');
   const [filterByCountryCode, setFilterByCountryCode] = useState();
@@ -53,6 +54,10 @@ const App = () => {
 
   function handleLimitChange(event) {
     setLimit(event.target.value);
+  }
+
+  function handleDebounceDelayChange(event) {
+    setDebounceDelay(event.target.value);
   }
 
   function handleValueChange(event) {
@@ -199,6 +204,13 @@ const App = () => {
       <input type="radio" value="10" name="limit" /> 10
     </div>
 
+    <div className="setting" onChange={handleDebounceDelayChange}>
+      <span className="label">Delay:</span>
+      <input type="radio" value="500" name="limit" /> 100ms
+      <input type="radio" value="300" name="limit" /> 300ms
+      <input type="radio" value="500" name="limit" /> 500ms
+    </div>
+
     <div className="setting" onChange={handleValueChange}>
       <span className="label">Value:</span>
       <input type="radio" value="Munich" name="value" /> Munich
@@ -256,6 +268,7 @@ const App = () => {
         skipSelectionOnArrowKey={true}
         allowNonVerifiedHouseNumber={true}
         allowNonVerifiedStreet={true}
+        debounceDelay={debounceDelay}
       />
 
       <GeoapifyGeocoderAutocomplete
