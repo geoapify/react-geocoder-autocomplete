@@ -27,12 +27,12 @@ Note, that the Place Deatils API call costs additional "Geocoding & Places" requ
 @geoapify/react-geocoder-autocomplete has a peer dependancy on **@geoapify/geocoder-autocomplete**:
 ```
 npm install @geoapify/geocoder-autocomplete @geoapify/react-geocoder-autocomplete
-# or 
+# or
 yarn add @geoapify/geocoder-autocomplete @geoapify/react-geocoder-autocomplete
 ```
 
 ## Usage
-You need an API key to be able to call Geoapify Geocoding API. 
+You need an API key to be able to call Geoapify Geocoding API.
 Register and get an API key for Free on [myprojects.geoapify.com](https://myprojects.geoapify.com/).
 Geoapify has [Freemium pricing model](https://www.geoapify.com/pricing/). You can start for Free and extend when you need.
 
@@ -123,12 +123,13 @@ export default App
 ### Component properties
 
 | Name | Type | Description |
-|-|-|-| 
+|-|-|-|
 | value | string | Initial value or display value for the input field |
 | type | LocationType | Type of a location
 | lang | SupportedLanguage | Results language |
 | limit | number | The maximal number of returned suggestions |
 | placeholder | string | An input field placeholder |
+| debounceDelay | number | A delay between user input and the API call to prevent unnecessary calls. The default value is 100ms. |
 | filterByCountryCode | ByCountryCodeOptions | Search places in the countries |
 | filterByCircle | ByCircleOptions | Search places inside the circle |
 | filterByRect | ByRectOptions | Search places inside the rectangle |

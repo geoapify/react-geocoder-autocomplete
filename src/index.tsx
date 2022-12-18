@@ -37,6 +37,7 @@ export interface GeoapifyGeocoderAutocompleteOptions {
   position?: GeoPosition;
   countryCodes?: CountyCode[];
 
+  debounceDelay?: number
   skipIcons?: boolean;
   skipDetails?: boolean;
 
@@ -67,6 +68,7 @@ export const GeoapifyGeocoderAutocomplete = ({
   biasByProximity: biasByProximityValue,
   position: positionValue,
   countryCodes: countryCodesValue,
+  debounceDelay: debounceDelayValue,
   skipIcons: skipIconsValue,
   skipDetails: skipDetailsValue,
   preprocessHook: preprocessHookValue,
@@ -163,7 +165,8 @@ export const GeoapifyGeocoderAutocomplete = ({
       {
         placeholder: placeholderValue || "",
         skipDetails: skipDetailsValue,
-        skipIcons: skipIconsValue
+        skipIcons: skipIconsValue,
+        debounceDelay: debounceDelayValue || 100
       }
     );
 
