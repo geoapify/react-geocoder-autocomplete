@@ -8,11 +8,13 @@ const App = () => {
   const [language, setLanguage] = useState();
   const [position, setPosition] = useState();
   const [countryCodes, setCountryCodes] = useState();
+  const [debounceDelay, setDebounceDelay] = useState();
   const [limit, setLimit] = useState();
   const [value, setValue] = useState('');
   const [filterByCountryCode, setFilterByCountryCode] = useState();
   const [filterByCircle, setFilterByCircle] = useState();
   const [filterByRect, setFilterByRect] = useState();
+  const [filterByPlace, setFilterByPlace] = useState();
   const [biasByCountryCode, setBiasByCountryCode] = useState();
   const [biasByCircle, setBiasByCircle] = useState();
   const [biasByRect, setBiasByRect] = useState();
@@ -54,6 +56,10 @@ const App = () => {
     setLimit(event.target.value);
   }
 
+  function handleDebounceDelayChange(event) {
+    setDebounceDelay(event.target.value);
+  }
+
   function handleValueChange(event) {
     setValue(event.target.value);
   }
@@ -64,18 +70,27 @@ const App = () => {
       setFilterByCountryCode(null);
       setFilterByRect(null);
       setFilterByCircle(null);
+      setFilterByPlace(null)
     } else if (positionName === 'circle') {
       setFilterByCircle({ lat: 55.75638407268255, lon: 37.599963771743774, radiusMeters: 100000 });
       setFilterByCountryCode(null);
       setFilterByRect(null);
+      setFilterByPlace(null)
     } else if (positionName === "rect") {
       setFilterByCircle(null);
       setFilterByCountryCode(null);
       setFilterByRect({ lat1: 40.30722603742393, lon1: -74.64393682324243, lat2: 41.09089986660214, lon2: -73.26457192453972 });
+      setFilterByPlace(null)
     } else if (positionName === "country") {
       setFilterByRect(null);
       setFilterByCircle(null);
       setFilterByCountryCode(['it', 'ch'])
+      setFilterByPlace(null)
+    } else if (positionName === "country") {
+      setFilterByRect(null);
+      setFilterByCircle(null);
+      setFilterByCountryCode(null)
+      setFilterByPlace('51ac66e77e9826274059f9426dc08c114840f00101f901dcf3000000000000c00208')
     }
   }
 
@@ -189,6 +204,13 @@ const App = () => {
       <input type="radio" value="10" name="limit" /> 10
     </div>
 
+    <div className="setting" onChange={handleDebounceDelayChange}>
+      <span className="label">Delay:</span>
+      <input type="radio" value="500" name="limit" /> 100ms
+      <input type="radio" value="300" name="limit" /> 300ms
+      <input type="radio" value="500" name="limit" /> 500ms
+    </div>
+
     <div className="setting" onChange={handleValueChange}>
       <span className="label">Value:</span>
       <input type="radio" value="Munich" name="value" /> Munich
@@ -202,6 +224,7 @@ const App = () => {
       <input type="radio" value="country" name="filter" /> By Country (it,ch)
       <input type="radio" value="circle" name="filter" /> By circle (Moscow + 100km)
       <input type="radio" value="rect" name="filter" /> By Rect (New York)
+      <input type="radio" value="place" name="filter" /> By Place (51ac66e77e9826274059f9426dc08c114840f00101f901dcf3000000000000c00208)
     </div>
 
     <div className="setting" onChange={handleBiasChange}>
@@ -233,6 +256,7 @@ const App = () => {
         filterByCountryCode={filterByCountryCode}
         filterByCircle={filterByCircle}
         filterByRect={filterByRect}
+        filterByPlace={filterByPlace}
         biasByCountryCode={biasByCountryCode}
         biasByCircle={biasByCircle}
         biasByRect={biasByRect}
@@ -241,6 +265,10 @@ const App = () => {
         suggestionsChange={onSuggectionChange}
         skipIcons={true}
         skipDetails={true}
+        skipSelectionOnArrowKey={true}
+        allowNonVerifiedHouseNumber={true}
+        allowNonVerifiedStreet={true}
+        debounceDelay={debounceDelay}
       />
 
       <GeoapifyGeocoderAutocomplete
@@ -248,7 +276,7 @@ const App = () => {
         suggestionsChange={onSuggectionChange}
         preprocessHook={preprocessHook}
         postprocessHook={postprocessHook}
-        suggestionsFilter={suggestionsFilter}        
+        suggestionsFilter={suggestionsFilter}
       />
 
     </GeoapifyContext>

@@ -27,12 +27,12 @@ Note, that the Place Deatils API call costs additional "Geocoding & Places" requ
 @geoapify/react-geocoder-autocomplete has a peer dependancy on **@geoapify/geocoder-autocomplete**:
 ```
 npm install @geoapify/geocoder-autocomplete @geoapify/react-geocoder-autocomplete
-# or 
+# or
 yarn add @geoapify/geocoder-autocomplete @geoapify/react-geocoder-autocomplete
 ```
 
 ## Usage
-You need an API key to be able to call Geoapify Geocoding API. 
+You need an API key to be able to call Geoapify Geocoding API.
 Register and get an API key for Free on [myprojects.geoapify.com](https://myprojects.geoapify.com/).
 Geoapify has [Freemium pricing model](https://www.geoapify.com/pricing/). You can start for Free and extend when you need.
 
@@ -99,6 +99,7 @@ const App = () => {
         filterByCountryCode={filterByCountryCode}
         filterByCircle={filterByCircle}
         filterByRect={filterByRect}
+        filterByPlace={filterByPlace}
         biasByCountryCode={biasByCountryCode}
         biasByCircle={biasByCircle}
         biasByRect={biasByRect}
@@ -123,21 +124,26 @@ export default App
 ### Component properties
 
 | Name | Type | Description |
-|-|-|-| 
+|-|-|-|
 | value | string | Initial value or display value for the input field |
 | type | LocationType | Type of a location
 | lang | SupportedLanguage | Results language |
 | limit | number | The maximal number of returned suggestions |
 | placeholder | string | An input field placeholder |
+| debounceDelay | number | A delay between user input and the API call to prevent unnecessary calls. The default value is 100ms. |
 | filterByCountryCode | ByCountryCodeOptions | Search places in the countries |
 | filterByCircle | ByCircleOptions | Search places inside the circle |
 | filterByRect | ByRectOptions | Search places inside the rectangle |
+| filterByPlace | string | Search for places within a given city or postal code. For example, search for streets within a city. Use the 'place_id' returned by another search to specify a filter. |
 | biasByCountryCode | ByCountryCodeOptions | First, search places in the countries |
 | biasByCircle | ByCircleOptions | First, search places inside the circle |
 | biasByRect | ByRectOptions | First, search places inside the rectangle |
 | biasByProximity | ByProximityOptions | Prioritize results by farness from the location |
 | skipIcons | boolean | Don't add icons to suggestions |
 | skipDetails | boolean | Skip Place Details API call on selection change |
+| skipSelectionOnArrowKey | boolean | Don't choose the location with the arrow keys |
+| allowNonVerifiedHouseNumber | boolean | Allow the addition of house numbers that are not verified by the Geocoding API or missing in the database. Check the "Working with non-verified values" section for details. |
+| allowNonVerifiedStreet | boolean | Allow the addition of streets that are not verified by the Geocoding API or missing in the database. Check the "Working with non-verified values" section for details. |
 
 You can use several filters at once. The **AND** logic is applied to multiple filters.
 
