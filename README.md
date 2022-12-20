@@ -23,6 +23,7 @@ Note, that the Place Deatils API call costs additional "Geocoding & Places" requ
 |1.2.x| >= 17.0.0|
 |1.3.x| >= 17.0.0|
 |1.4.x| >= 18.0.0|
+|1.5.x| >= 18.0.0|
 ## Installation
 @geoapify/react-geocoder-autocomplete has a peer dependancy on **@geoapify/geocoder-autocomplete**:
 ```

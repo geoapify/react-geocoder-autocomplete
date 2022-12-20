@@ -9,9 +9,9 @@ import {
   ByCircleOptions,
   ByRectOptions,
   ByProximityOptions,
-} from "@geoapify/geocoder-autocomplete";
+} from '@geoapify/geocoder-autocomplete';
 
-export const GeoapifyApiKey = React.createContext<string>("");
+export const GeoapifyApiKey = React.createContext<string>('');
 
 export const GeoapifyContext = (props: any) => {
   return (
@@ -90,8 +90,10 @@ export const GeoapifyGeocoderAutocomplete = ({
 }: GeoapifyGeocoderAutocompleteOptions) => {
   const apiKey = React.useContext<string>(GeoapifyApiKey);
   let geocoderContainer: HTMLDivElement | null;
-  let initialized: boolean = false;
-  let geocoderAutocomplete: MutableRefObject<
+
+  let initialized = false;
+
+  const geocoderAutocomplete: MutableRefObject<
     GeocoderAutocomplete | undefined
   > = useRef<GeocoderAutocomplete>();
 

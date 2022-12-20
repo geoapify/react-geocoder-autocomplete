@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
-import { GeoapifyGeocoderAutocomplete, GeoapifyContext } from '@geoapify/react-geocoder-autocomplete'
-import '@geoapify/geocoder-autocomplete/styles/minimal.css'
+import React, { useState } from 'react';
+
+import {
+  GeoapifyGeocoderAutocomplete,
+  GeoapifyContext
+} from '@geoapify/react-geocoder-autocomplete';
+import '@geoapify/geocoder-autocomplete/styles/minimal.css';
 
 const App = () => {
-
   const [type, setType] = useState();
   const [language, setLanguage] = useState();
   const [position, setPosition] = useState();
@@ -86,7 +89,7 @@ const App = () => {
       setFilterByCircle(null);
       setFilterByCountryCode(['it', 'ch'])
       setFilterByPlace(null)
-    } else if (positionName === "country") {
+    } else if (positionName === "place") {
       setFilterByRect(null);
       setFilterByCircle(null);
       setFilterByCountryCode(null)
@@ -244,9 +247,11 @@ const App = () => {
         onUserInput={onUserInput}
         onOpen={onOpen}
         onClose={onClose}
+        allowNonVerifiedHouseNumber={true}
       />
 
-      <GeoapifyGeocoderAutocomplete placeholder="Enter address here"
+      <GeoapifyGeocoderAutocomplete
+        placeholder="Enter address here"
         value={value}
         type={type}
         lang={language}
