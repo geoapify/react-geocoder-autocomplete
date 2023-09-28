@@ -170,6 +170,16 @@ const App = () => {
     console.log(opened);
   }
 
+  function sendGeocoderRequest(value, geocoder) {
+    console.log(value);
+    return geocoder.sendGeocoderRequest(value);
+  }
+
+  function sendPlaceDetailsRequest(feature, geocoder) {
+    console.log(feature);
+    return geocoder.sendPlaceDetailsRequest(feature);
+  }
+
   return <div>
     <div className="setting" onChange={handleTypeChange}>
       <span className="label">Location type:</span>
@@ -283,6 +293,12 @@ const App = () => {
         postprocessHook={postprocessHook}
         suggestionsFilter={suggestionsFilter}
       />
+
+      <GeoapifyGeocoderAutocomplete
+        sendGeocoderRequestFunc={sendGeocoderRequest}
+        addDetails={true}
+        sendPlaceDetailsRequestFunc={sendPlaceDetailsRequest}
+      />  
 
     </GeoapifyContext>
   </div>

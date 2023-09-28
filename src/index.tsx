@@ -40,7 +40,7 @@ export interface GeoapifyGeocoderAutocompleteOptions {
 
   debounceDelay?: number
   skipIcons?: boolean;
-  skipDetails?: boolean;
+  addDetails?: boolean;
   skipSelectionOnArrowKey?: boolean;
   allowNonVerifiedHouseNumber?: boolean;
   allowNonVerifiedStreet?: boolean;
@@ -51,6 +51,8 @@ export interface GeoapifyGeocoderAutocompleteOptions {
   preprocessHook?: (value: string) => string;
   postprocessHook?: (feature: any) => string;
   suggestionsFilter?: (suggestions: any[]) => any[];
+  sendGeocoderRequestFunc?: (value: string, geocoderAutocomplete: GeocoderAutocomplete) => Promise<any>;
+  sendPlaceDetailsRequestFunc?: (feature: any, geocoderAutocomplete: GeocoderAutocomplete) => Promise<any>;
 
   onUserInput?: (input: string) => void;
   onOpen?: (opened: boolean) => void;
@@ -78,10 +80,12 @@ export const GeoapifyGeocoderAutocomplete = ({
   skipSelectionOnArrowKey: skipSelectionOnArrowKeyValue,
   allowNonVerifiedHouseNumber: allowNonVerifiedHouseNumberValue,
   allowNonVerifiedStreet: allowNonVerifiedStreetValue,
-  skipDetails: skipDetailsValue,
+  addDetails: addDetailsValue,
   preprocessHook: preprocessHookValue,
   postprocessHook: postprocessHookValue,
   suggestionsFilter: suggestionsFilterValue,
+  sendGeocoderRequestFunc: sendGeocoderRequestFuncValue,
+  sendPlaceDetailsRequestFunc: sendPlaceDetailsRequestFuncValue,
   placeSelect: placeSelectCallback,
   suggestionsChange: suggestionsChangeCallback,
   onUserInput: userInputCallback,
@@ -174,7 +178,7 @@ export const GeoapifyGeocoderAutocomplete = ({
       apiKey,
       {
         placeholder: placeholderValue || "",
-        skipDetails: skipDetailsValue,
+        addDetails: addDetailsValue,
         skipIcons: skipIconsValue,
         skipSelectionOnArrowKey: skipSelectionOnArrowKeyValue,
         allowNonVerifiedHouseNumber: allowNonVerifiedHouseNumberValue,
@@ -188,6 +192,10 @@ export const GeoapifyGeocoderAutocomplete = ({
     geocoderAutocomplete.current.on("input", onUserInput);
     geocoderAutocomplete.current.on("close", onClose);
     geocoderAutocomplete.current.on("open", onOpen);
+
+    if (sendGeocoderRequestFuncValue) {
+      geocoderAutocomplete.current.setSendGeocoderRequestFunc(sendGeocoderRequestFuncValue)
+    }
   }, []);
 
   useEffect(() => {
@@ -323,6 +331,23 @@ export const GeoapifyGeocoderAutocomplete = ({
       );
     }
   }, [suggestionsFilterValue]);
+
+
+  useEffect(() => {
+    if (geocoderAutocomplete.current && sendGeocoderRequestFuncValue) {
+      geocoderAutocomplete.current.setSendGeocoderRequestFunc(
+        sendGeocoderRequestFuncValue
+      );
+    }
+  }, [sendGeocoderRequestFuncValue]);
+
+  useEffect(() => {
+    if (geocoderAutocomplete.current && sendPlaceDetailsRequestFuncValue) {
+      geocoderAutocomplete.current.setSendPlaceDetailsRequestFunc(
+        sendPlaceDetailsRequestFuncValue
+      );
+    }
+  }, [sendPlaceDetailsRequestFuncValue]);
 
   return (
     <div

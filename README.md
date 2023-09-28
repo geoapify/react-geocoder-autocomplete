@@ -1,199 +1,168 @@
-# React compoment for Geoapify Geocoder Autocomplete
-The component wraps the [@geoapify/geocoder-autocomplete](https://www.npmjs.com/package/@geoapify/geocoder-autocomplete) library into a React component. The library uses [Geoapify Geocoding Autocomplete](https://www.geoapify.com/address-autocomplete/) as an address search service.
+# React Geocoder Autocomplete
 
-## Geoapify Geocoding Autocomplete API
-The component uses Geoapify Geocoding API for address search.
-* [Documentation](https://apidocs.geoapify.com/docs/geocoding)
-* [Playground](https://apidocs.geoapify.com/playground/geocoding#autocomplete)
-* [Register and get Geoapify API key](https://myprojects.geoapify.com)
-* [Geoapify Location Platform](https://www.geoapify.com/)
+The @geoapify/react-geocoder-autocomplete component serves as an interface to the [@geoapify/geocoder-autocomplete](https://www.npmjs.com/package/@geoapify/geocoder-autocomplete) library, seamlessly integrating its capabilities into React-based applications. This integration harnesses the power of the [Geoapify Geocoding Autocomplete](https://www.geoapify.com/address-autocomplete/) service for advanced address search functionality.
 
-## Geoapify Place Details API
-On user select events the Place Details API is called to provide more details for the selected place and it's geometry.
-Note, that the Place Deatils API call costs additional "Geocoding & Places" request. Use the `skipDetails` option to skip the Places Details API call.
-* [Place Details API Documentation](https://apidocs.geoapify.com/docs/place-details)
-* [Place Details API Playground](https://apidocs.geoapify.com/playground/place-details)
+Address autocomplete is a feature that enhances user experience and accuracy when entering location-based information, particularly addresses. It's a technology often used in web and mobile applications to assist users in quickly and accurately inputting addresses by providing real-time suggestions as they type.
 
-
-## Compatiblity table
-|@geoapify/react-geocoder-autocomplete|React|
-|-|-|
-|1.0.x| >= 16.8.0|
-|1.1.x| >= 16.8.0|
-|1.2.x| >= 17.0.0|
-|1.3.x| >= 17.0.0|
-|1.4.x| >= 18.0.0|
-|1.5.x| >= 18.0.0|
+![Geocoder Autocomplete](https://github.com/geoapify/geocoder-autocomplete/blob/9b46b3e458d18b45e2957298e8833f830ed6252a/img/address-autocomplete-example.png?raw=true)
 ## Installation
-@geoapify/react-geocoder-autocomplete has a peer dependancy on **@geoapify/geocoder-autocomplete**:
-```
+
+`@geoapify/react-geocoder-autocomplete` relies on **@geoapify/geocoder-autocomplete** as a peer dependency. To include both packages in your project, you can use the following commands:
+
+Using npm:
+
+```bash
 npm install @geoapify/geocoder-autocomplete @geoapify/react-geocoder-autocomplete
-# or
+```
+
+Using Yarn:
+
+```bash
 yarn add @geoapify/geocoder-autocomplete @geoapify/react-geocoder-autocomplete
 ```
 
-## Usage
-You need an API key to be able to call Geoapify Geocoding API.
-Register and get an API key for Free on [myprojects.geoapify.com](https://myprojects.geoapify.com/).
-Geoapify has [Freemium pricing model](https://www.geoapify.com/pricing/). You can start for Free and extend when you need.
+This ensures that both the React wrapper and the underlying geocoder-autocomplete library are correctly installed and compatible with each other in your project.
 
-1. Import styles
-Import CSS style file from **@geoapify-geocoder-autocomplete** to make the control appear correctly. You can choose from several stylings:
-* `minimal` and `round-borders` - for webpages with light background color
-* `minimal-dark` and `round-borders-dark` for webpages with dark background color.
-2. Add Geoapify context and provide an apiKey there
-3. Add Geoapify Geocoder Autocomplete component
+## Compatibility Table
+| @geoapify/react-geocoder-autocomplete | React |
+|----------------------------------------|-------|
+| 1.0.x                                  | >= 16.8.0 |
+| 1.1.x                                  | >= 16.8.0 |
+| 1.2.x                                  | >= 17.0.0 |
+| 1.3.x                                  | >= 17.0.0 |
+| 1.4.x                                  | >= 18.0.0 |
+| 1.5.x                                  | >= 18.0.0 |
+| 2.0.x                                  | >= 18.0.0 |
 
-```tsx
-import React, { useState } from 'react'
-import { GeoapifyGeocoderAutocomplete, GeoapifyContext } from '@geoapify/react-geocoder-autocomplete'
-import '@geoapify/geocoder-autocomplete/styles/minimal.css'
+This table provides compatibility information between different versions of **@geoapify/react-geocoder-autocomplete** and the required minimum version of React. Make sure to choose the appropriate version based on your React project's version.
 
-const App = () => {
+Certainly, here's a complete "Getting Started" guide for using the `@geoapify/react-geocoder-autocomplete` library in your React project:
+
+## Getting Started
+
+Geoapify Geocoder Autocomplete simplifies address search in your React applications. Follow these steps to get started:
+
+### Obtaining Your API Key
+
+Before integrating the `@geoapify/react-geocoder-autocomplete` library into your project, you must acquire an API key from Geoapify. Here's a step-by-step guide:
+
+1. **Register for a Geoapify Account:** If you don't already have a Geoapify account, visit [Geoapify My Projects](https://myprojects.geoapify.com/) and sign up for a free account.
+
+2. **Create a New Project:** After registering and logging in, create a new project in your Geoapify account.
+
+3. **Generate an API Key:** Within your project settings, you can generate a new API key. Customize the key's settings according to your project's requirements. Once configured, generate the API key. Be sure to copy it because you'll need it to authenticate and use Geoapify services in your React project.
+
+### Integrate the Geocoder Autocomplete Component
+
+To integrate the `@geoapify/react-geocoder-autocomplete` component into your React project, follow these steps:
+
+1. **Import Styles:**
+   Import the CSS style file from `@geoapify/geocoder-autocomplete` to ensure the control appears correctly. You can choose from various styles like `minimal`, `round-borders`, `minimal-dark`, or `round-borders-dark`, depending on your webpage's background color.
+
+   ```tsx
+   import '@geoapify/geocoder-autocomplete/styles/minimal.css';
+   ```
+
+2. **Add Geoapify Context and Provide API Key:**
+   Wrap your component with the `GeoapifyContext` and provide your Geoapify API key as a prop. This context will enable the component to authenticate and use Geoapify services.
+
+   ```tsx
+   import { GeoapifyContext } from '@geoapify/react-geocoder-autocomplete';
+
+   // Inside your component...
+   <GeoapifyContext apiKey="YOUR_API_KEY_HERE">
+     {/* Your Geoapify Geocoder Autocomplete components go here */}
+   </GeoapifyContext>
+   ```
+
+   Replace `"YOUR_API_KEY_HERE"` with your actual Geoapify API key.
+
+3. **Add Geoapify Geocoder Autocomplete Component:**
+   You can add one or more instances of the `GeoapifyGeocoderAutocomplete` component within the `GeoapifyContext`. Customize the component by passing various props like `placeholder`, `value`, `type`, `lang`, and more, based on your specific requirements.
+
+   Here's an example of using the component with different props and callback functions:
+
+  ```tsx
+  import '@geoapify/geocoder-autocomplete/styles/minimal.css';
+  import {
+    GeoapifyGeocoderAutocomplete,
+    GeoapifyContext
+  } from '@geoapify/react-geocoder-autocomplete';
+
   ...
+   <GeoapifyContext apiKey="YOUR_API_KEY">
+    <GeoapifyGeocoderAutocomplete
+      placeholder="Enter address here"
+      value={value}
+      type={type}
+      lang={language}
+      position={position}
+      countryCodes={countryCodes}
+      limit={limit}
+      filterByCountryCode={filterByCountryCode}
+      filterByCircle={filterByCircle}
+      filterByRect={filterByRect}
+      filterByPlace={filterByPlace}
+      biasByCountryCode={biasByCountryCode}
+      biasByCircle={biasByCircle}
+      biasByRect={biasByRect}
+      biasByProximity={biasByProximity}
+      placeSelect={onPlaceSelect}
+      suggestionsChange={onSuggestionChange}
+    />
+  </GeoapifyContext>
+  ```
 
-  function onPlaceSelect(value) {
-    console.log(value);
-  }
+  Customize the props to meet your project's needs, and handle events like `placeSelect` and `suggestionsChange` by specifying callback functions as shown in the example.
 
-  function onSuggectionChange(value) {
-    console.log(value);
-  }
+Optionally, you can use preprocessing and postprocessing hooks, as well as suggestions filtering, by providing the respective functions as props to the `GeoapifyGeocoderAutocomplete` component. These functions allow you to modify user input and search results to fit your application's requirements.
 
-  function preprocessHook(value) {
-    return `${value}, Munich, Germany`
-  }
+By following these steps and configuring the `GeoapifyGeocoderAutocomplete` component with the necessary props and callbacks, you can seamlessly integrate address autocomplete functionality into your React project while customizing it to your specific needs.
 
-  function postprocessHook(feature) {
-    return feature.properties.street;
-  }
+## API documentation
 
-  function suggestionsFilter(suggestions) {
-    const processedStreets = [];
+Here are the props for the `GeoapifyGeocoderAutocomplete` component:
 
-    const filtered = suggestions.filter(value => {
-      if (!value.properties.street || processedStreets.indexOf(value.properties.street) >= 0) {
-        return false;
-      } else {
-        processedStreets.push(value.properties.street);
-        return true;
-      }
-    })
+| Prop                           | Type                                                                                                   | Description                                                                                                                                                                                                                                  |
+|--------------------------------|--------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `placeholder`                   | string                                                                                                 | Placeholder text for the input field.                                                                                                                                                                                                                                                                     |
+| `type`                          | GeocoderAutocomplete.LocationType                                                                                           | The type of location to search for (e.g., 'city', 'postcode', 'street'). Default is 'city'.                                                                                                                                                                                                               |
+| `lang`                          | GeocoderAutocomplete.SupportedLanguage                                                                                      | The language for search suggestions. Default is 'en'.                                                                                                                                                                                                                                                     |
+| `limit`                         | number                                                                                                 | The maximum number of suggestions to display. Default is 5.                                                                                                                                                                                                                                                |
+| `value`                         | string                                                                                                 | The initial input value.                                                                                                                                                                                                                                                                                  |
+| `filterByCountryCode`           | GeocoderAutocomplete.ByCountryCodeOptions                                                                                   | Filter suggestions by country code(s).                                                                                                                                                                                                                                                                    |
+| `filterByPlace`                 | string                                                                                                 | Filter suggestions by a specific place (e.g., 'New York').                                                                                                                                                                                                                                                  |
+| `filterByCircle`                | GeocoderAutocomplete.ByCircleOptions                                                                                        | Filter suggestions by a circular area.                                                                                                                                                                                                                                                                     |
+| `filterByRect`                  | GeocoderAutocomplete.ByRectOptions                                                                                          | Filter suggestions by a rectangular area.                                                                                                                                                                                                                                                                  |
+| `biasByCountryCode`             | GeocoderAutocomplete.ByCountryCodeOptions                                                                                   | Bias suggestions by country code(s).                                                                                                                                                                                                                                                                       |
+| `biasByCircle`                  | GeocoderAutocomplete.ByCircleOptions                                                                                        | Bias suggestions by a circular area.                                                                                                                                                                                                                                                                        |
+| `biasByRect`                    | GeocoderAutocomplete.ByRectOptions                                                                                          | Bias suggestions by a rectangular area.                                                                                                                                                                                                                                                                     |
+| `biasByProximity`               | GeocoderAutocomplete.ByProximityOptions                                                                                     | Bias suggestions by proximity to a location.                                                                                                                                                                                                                                                                |
+| `debounceDelay`                 | number                                                                                                 | Delay in milliseconds to wait for user input before triggering suggestions. Default is 100.                                                                                                                                                                                                               |
+| `skipIcons`                     | boolean                                                                                                | Whether to skip displaying icons in suggestions. Default is false.                                                                                                                                                                                                                                         |
+| `addDetails`                    | boolean                                                                                                | Whether to add detailed place information to suggestions. Default is false.                                                                                                                                                                                                                                 |
+| `skipSelectionOnArrowKey`       | boolean                                                                                                | Whether to skip selecting suggestions when using arrow keys. Default is false.                                                                                                                                                                                                                              |
+| `allowNonVerifiedHouseNumber`   | boolean                                                                                                | Whether to allow non-verified house numbers in suggestions. Default is false.                                                                                                                                                                                                                               |
+| `allowNonVerifiedStreet`        | boolean                                                                                                | Whether to allow non-verified streets in suggestions. Default is false.                                                                                                                                                                                                                                     |
+| `placeSelect`                   | (value: GeoJSON.Feature) => void                                                                                   | Callback function when a place is selected.                                                                                                                                                                                                                                                                |
+| `suggestionsChange`             | (values: GeoJSON.Feature[]) => void                                                                                   | Callback function when suggestions change.                                                                                                                                                                                                                                                                 |
+| `preprocessHook`                | (value: string) => string                                                                              | Preprocessing hook for user input.                                                                                                                                                                                                                                                                         |
+| `postprocessHook`               | (feature: GeoJSON.Feature) => string                                                                               | Postprocessing hook for selected suggestions.                                                                                                                                                                                                                                                              |
+| `suggestionsFilter`             | (suggestions: GeoJSON.Feature[]) => any[]                                                                         | Custom filter for suggestions.                                                                                                                                                                                                                                                                             |
+| `sendGeocoderRequestFunc`       | (value: string, geocoderAutocomplete: GeocoderAutocomplete) => Promise<GeoJSON.FeatureCollection>                             | Custom function to send geocoder requests.                                                                                                                                                                                                                                                                  |
+| `sendPlaceDetailsRequestFunc`   | (feature: GeoJSON.Feature, geocoderAutocomplete: GeocoderAutocomplete) => Promise<GeoJSON.Feature>                             | Custom function to send place details requests.                                                                                                                                                                                                                                                             |
+| `onUserInput`                   | (input: string) => void                                                                               | Callback function when user input changes.                                                                                                                                                                                                                                                                 |
+| `onOpen`                        | (opened: boolean) => void                                                                            | Callback function when the suggestions dropdown opens.                                                                                                                                                                                                                                                      |
+| `onClose`                       | (opened: boolean) => void                                                                            | Callback function when the suggestions dropdown closes.                                                                                                                                                                                                                                                     |
 
-    return filtered;
-  }
+These props allow you to configure and customize the behavior of the `GeoapifyGeocoderAutocomplete` component in your React application.
 
-  return <GeoapifyContext apiKey="YOUR_API_KEY_HERE">
+You can apply multiple filters simultaneously, and the **AND** logic is used to combine these filters. Similarly, you can utilize multiple bias parameters concurrently, and the **OR** logic is employed to combine these biases.
 
-      <GeoapifyGeocoderAutocomplete
-        placeSelect={onPlaceSelect}
-        suggestionsChange={onSuggectionChange}
-      />
+The component does not have a dependency on [@types/geojson](https://www.npmjs.com/package/@types/geojson). Nevertheless, you have the option to install it if you intend to work with GeoJSON types.
 
-      <GeoapifyGeocoderAutocomplete placeholder="Enter address here"
-        value={value}
-        type={type}
-        lang={language}
-        position={position}
-        countryCodes={countryCodes}
-        limit={limit}
-        filterByCountryCode={filterByCountryCode}
-        filterByCircle={filterByCircle}
-        filterByRect={filterByRect}
-        filterByPlace={filterByPlace}
-        biasByCountryCode={biasByCountryCode}
-        biasByCircle={biasByCircle}
-        biasByRect={biasByRect}
-        biasByProximity={biasByProximity}
-        placeSelect={onPlaceSelect}
-        suggestionsChange={onSuggectionChange}
-      />
 
-      <GeoapifyGeocoderAutocomplete
-        placeSelect={onPlaceSelect}
-        suggestionsChange={onSuggectionChange}
-        preprocessHook={preprocessHook}
-        postprocessHook={postprocessHook}
-        suggestionsFilter={suggestionsFilter}
-      />
-    </GeoapifyContext>
-}
-
-export default App
-
-```
-### Component properties
-
-| Name | Type | Description |
-|-|-|-|
-| value | string | Initial value or display value for the input field |
-| type | LocationType | Type of a location
-| lang | SupportedLanguage | Results language |
-| limit | number | The maximal number of returned suggestions |
-| placeholder | string | An input field placeholder |
-| debounceDelay | number | A delay between user input and the API call to prevent unnecessary calls. The default value is 100ms. |
-| filterByCountryCode | ByCountryCodeOptions | Search places in the countries |
-| filterByCircle | ByCircleOptions | Search places inside the circle |
-| filterByRect | ByRectOptions | Search places inside the rectangle |
-| filterByPlace | string | Search for places within a given city or postal code. For example, search for streets within a city. Use the 'place_id' returned by another search to specify a filter. |
-| biasByCountryCode | ByCountryCodeOptions | First, search places in the countries |
-| biasByCircle | ByCircleOptions | First, search places inside the circle |
-| biasByRect | ByRectOptions | First, search places inside the rectangle |
-| biasByProximity | ByProximityOptions | Prioritize results by farness from the location |
-| skipIcons | boolean | Don't add icons to suggestions |
-| skipDetails | boolean | Skip Place Details API call on selection change |
-| skipSelectionOnArrowKey | boolean | Don't choose the location with the arrow keys |
-| allowNonVerifiedHouseNumber | boolean | Allow the addition of house numbers that are not verified by the Geocoding API or missing in the database. Check the "Working with non-verified values" section for details. |
-| allowNonVerifiedStreet | boolean | Allow the addition of streets that are not verified by the Geocoding API or missing in the database. Check the "Working with non-verified values" section for details. |
-
-You can use several filters at once. The **AND** logic is applied to multiple filters.
-
-You can use several bias parameters at once. The **OR** logic is applied to multiple biases.
-
-```javascript
-export type ByCountryCodeOptions = CountyCode[];
-
-export interface ByProximityOptions {
-    lon: number;
-    lat: number;
-}
-
-export interface ByCircleOptions {
-    lon: number;
-    lat: number;
-    radiusMeters: number;
-}
-
-export interface ByRectOptions {
-    lon1: number;
-    lat1: number;
-    lon2: number;
-    lat2: number;
-}
-
-export type LocationType = 'country' | 'state' | 'city' | 'postcode' | 'street' | 'amenity';
-export type SupportedLanguage = "ab" | "aa" | "af" | "ak" | "sq" | "am" | "ar" | "an" | "hy" | "as" | "av" | "ae" | "ay" | "az" | "bm" | "ba" | "eu" | "be" | "bn" | "bh" | "bi" | "bs" | "br" | "bg" | "my" | "ca" | "ch" | "ce" | "ny" | "zh" | "cv" | "kw" | "co" | "cr" | "hr" | "cs" | "da" | "dv" | "nl" | "en" | "eo" | "et" | "ee" | "fo" | "fj" | "fi" | "fr" | "ff" | "gl" | "ka" | "de" | "el" | "gn" | "gu" | "ht" | "ha" | "he" | "hz" | "hi" | "ho" | "hu" | "ia" | "id" | "ie" | "ga" | "ig" | "ik" | "io" | "is" | "it" | "iu" | "ja" | "jv" | "kl" | "kn" | "kr" | "ks" | "kk" | "km" | "ki" | "rw" | "ky" | "kv" | "kg" | "ko" | "ku" | "kj" | "la" | "lb" | "lg" | "li" | "ln" | "lo" | "lt" | "lu" | "lv" | "gv" | "mk" | "mg" | "ms" | "ml" | "mt" | "mi" | "mr" | "mh" | "mn" | "na" | "nv" | "nb" | "nd" | "ne" | "ng" | "nn" | "no" | "ii" | "nr" | "oc" | "oj" | "cu" | "om" | "or" | "os" | "pa" | "pi" | "fa" | "pl" | "ps" | "pt" | "qu" | "rm" | "rn" | "ro" | "ru" | "sa" | "sc" | "sd" | "se" | "sm" | "sg" | "sr" | "gd" | "sn" | "si" | "sk" | "sl" | "so" | "st" | "es" | "su" | "sw" | "ss" | "sv" | "ta" | "te" | "tg" | "th" | "ti" | "bo" | "tk" | "tl" | "tn" | "to" | "tr" | "ts" | "tt" | "tw" | "ty" | "ug" | "uk" | "ur" | "uz" | "ve" | "vi" | "vo" | "wa" | "cy" | "wo" | "fy" | "xh" | "yi" | "yo" | "za";
-
-export type CountyCode = "none"| "auto" | "ad" | "ae" | "af" | "ag" | "ai" | "al" | "am" | "an" | "ao" | "ap" | "aq" | "ar" | "as" | "at" | "au" | "aw" | "az" | "ba" | "bb" | "bd" | "be" | "bf" | "bg" | "bh" | "bi" | "bj" | "bm" | "bn" | "bo" | "br" | "bs" | "bt" | "bv" | "bw" | "by" | "bz" | "ca" | "cc" | "cd" | "cf" | "cg" | "ch" | "ci" | "ck" | "cl" | "cm" | "cn" | "co" | "cr" | "cu" | "cv" | "cx" | "cy" | "cz" | "de" | "dj" | "dk" | "dm" | "do" | "dz" | "ec" | "ee" | "eg" | "eh" | "er" | "es" | "et" | "eu" | "fi" | "fj" | "fk" | "fm" | "fo" | "fr" | "ga" | "gb" | "gd" | "ge" | "gf" | "gh" | "gi" | "gl" | "gm" | "gn" | "gp" | "gq" | "gr" | "gs" | "gt" | "gu" | "gw" | "gy" | "hk" | "hm" | "hn" | "hr" | "ht" | "hu" | "id" | "ie" | "il" | "in" | "io" | "iq" | "ir" | "is" | "it" | "jm" | "jo" | "jp" | "ke" | "kg" | "kh" | "ki" | "km" | "kn" | "kp" | "kr" | "kw" | "ky" | "kz" | "la" | "lb" | "lc" | "li" | "lk" | "lr" | "ls" | "lt" | "lu" | "lv" | "ly" | "ma" | "mc" | "md" | "me" | "mg" | "mh" | "mk" | "ml" | "mm" | "mn" | "mo" | "mp" | "mq" | "mr" | "ms" | "mt" | "mu" | "mv" | "mw" | "mx" | "my" | "mz" | "na" | "nc" | "ne" | "nf" | "ng" | "ni" | "nl" | "no" | "np" | "nr" | "nu" | "nz" | "om" | "pa" | "pe" | "pf" | "pg" | "ph" | "pk" | "pl" | "pm" | "pr" | "ps" | "pt" | "pw" | "py" | "qa" | "re" | "ro" | "rs" | "ru" | "rw" | "sa" | "sb" | "sc" | "sd" | "se" | "sg" | "sh" | "si" | "sj" | "sk" | "sl" | "sm" | "sn" | "so" | "sr" | "st" | "sv" | "sy" | "sz" | "tc" | "td" | "tf" | "tg" | "th" | "tj" | "tk" | "tm" | "tn" | "to" | "tr" | "tt" | "tv" | "tw" | "tz" | "ua" | "ug" | "um" | "us" | "uy" | "uz" | "va" | "vc" | "ve" | "vg" | "vi" | "vn" | "vu" | "wf" | "ws" | "ye" | "yt" | "za" | "zm" | "zw";
-```
-
-### Component event properties
-| Name | Description | Value type |
-|-|-|-|
-| placeSelect | Fired when a location was selected | [GeoJSON.Feature](https://geojson.org/) |
-| suggestionsChange | Fired on new suggestions | [GeoJSON.Feature[]](https://geojson.org/) |
-| onUserInput | Fired on user input | string |
-| onOpen | Fired on dropdown list open | |
-| onClose | Fired on dropdownlist close | |
-
-Properties of the feature contain information about address and location.
-Learn more about Geocoder result properties on [Geoapify Documentation page](https://apidocs.geoapify.com/docs/geocoding/).
-
-The component doesn't have dependancy on [@types/geojson](https://www.npmjs.com/package/@types/geojson). However, you can install it to work with GeoJSON types.
-
-### Hooks and filters
-| Name | Description |
-|-|-|
-| preprocessingHook | Modify the text to search. For example, if you expect that the user enters a street name you can add a city or postcode to search streets in the city. |
-| postprocessingHook | Modify the text that will be displayed in the input field and suggestions list. For example, you can show only a street name. |
-| suggestionsFilter | Filtering some suggestions. It lets to avoid duplicated results when you modify the address with a post-process hook. For example, suggestions may contain several addresses with the same street name, they will be duplicated when not the whole address but only the street name is shown. |
+**Explore More:**
+- [Geoapify Maps and APIs](https://www.geoapify.com/)
+- [Geoapify Address Autocomplete Playground](https://apidocs.geoapify.com/playground/geocoding/#autocomplete)
+- [Geoapify Address Autocomplete Docs](https://apidocs.geoapify.com/docs/geocoding/address-autocomplete/#autocomplete)
