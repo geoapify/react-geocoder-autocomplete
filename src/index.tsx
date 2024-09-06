@@ -95,8 +95,6 @@ export const GeoapifyGeocoderAutocomplete = ({
   const apiKey = React.useContext<string>(GeoapifyApiKey);
   let geocoderContainer: HTMLDivElement | null;
 
-  let initialized = false;
-
   const geocoderAutocomplete: MutableRefObject<
     GeocoderAutocomplete | undefined
   > = useRef<GeocoderAutocomplete>();
@@ -159,7 +157,35 @@ export const GeoapifyGeocoderAutocomplete = ({
   },[]);
 
   useEffect(() => {
-    if (initialized) {
+    if (!geocoderAutocomplete.current) {
+      geocoderAutocomplete.current = new GeocoderAutocomplete(
+        geocoderContainer as HTMLDivElement,
+        apiKey,
+        {
+          placeholder: placeholderValue || "",
+          addDetails: addDetailsValue,
+          skipIcons: skipIconsValue,
+          skipSelectionOnArrowKey: skipSelectionOnArrowKeyValue,
+          allowNonVerifiedHouseNumber: allowNonVerifiedHouseNumberValue,
+          allowNonVerifiedStreet: allowNonVerifiedStreetValue,
+          debounceDelay: debounceDelayValue || 100,
+        }
+      );
+
+      geocoderAutocomplete.current.on("select", onSelect);
+      geocoderAutocomplete.current.on("suggestions", onSuggestions);
+      geocoderAutocomplete.current.on("input", onUserInput);
+      geocoderAutocomplete.current.on("close", onClose);
+      geocoderAutocomplete.current.on("open", onOpen);
+    }
+
+    if (sendGeocoderRequestFuncValue) {
+      geocoderAutocomplete.current.setSendGeocoderRequestFunc(
+        sendGeocoderRequestFuncValue
+      );
+    }
+
+    return () => {
       if (geocoderAutocomplete.current) {
         geocoderAutocomplete.current.off("select", onSelect);
         geocoderAutocomplete.current.off("suggestions", onSuggestions);
@@ -167,35 +193,7 @@ export const GeoapifyGeocoderAutocomplete = ({
         geocoderAutocomplete.current.off("close", onClose);
         geocoderAutocomplete.current.off("open", onOpen);
       }
-
-      return;
-    }
-
-    initialized = true;
-
-    geocoderAutocomplete.current = new GeocoderAutocomplete(
-      geocoderContainer as HTMLDivElement,
-      apiKey,
-      {
-        placeholder: placeholderValue || "",
-        addDetails: addDetailsValue,
-        skipIcons: skipIconsValue,
-        skipSelectionOnArrowKey: skipSelectionOnArrowKeyValue,
-        allowNonVerifiedHouseNumber: allowNonVerifiedHouseNumberValue,
-        allowNonVerifiedStreet: allowNonVerifiedStreetValue,
-        debounceDelay: debounceDelayValue || 100
-      }
-    );
-
-    geocoderAutocomplete.current.on("select", onSelect);
-    geocoderAutocomplete.current.on("suggestions", onSuggestions);
-    geocoderAutocomplete.current.on("input", onUserInput);
-    geocoderAutocomplete.current.on("close", onClose);
-    geocoderAutocomplete.current.on("open", onOpen);
-
-    if (sendGeocoderRequestFuncValue) {
-      geocoderAutocomplete.current.setSendGeocoderRequestFunc(sendGeocoderRequestFuncValue)
-    }
+    };
   }, []);
 
   useEffect(() => {

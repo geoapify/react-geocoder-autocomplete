@@ -180,7 +180,7 @@ const App = () => {
     return geocoder.sendPlaceDetailsRequest(feature);
   }
 
-  return <div>
+  return <React.StrictMode><div>
     <div className="setting" onChange={handleTypeChange}>
       <span className="label">Location type:</span>
       <input type="radio" value="country" name="type" /> Country
@@ -298,10 +298,10 @@ const App = () => {
         sendGeocoderRequestFunc={sendGeocoderRequest}
         addDetails={true}
         sendPlaceDetailsRequestFunc={sendPlaceDetailsRequest}
-      />  
+      />
 
     </GeoapifyContext>
-  </div>
+  </div></React.StrictMode>
 }
 
 export default App
