@@ -73,6 +73,11 @@
     "react-scripts": "^5.0.1",
     "typescript": "^5.5.4"
   },
+  "jest": {
+    "transformIgnorePatterns": [
+      "!node_modules/"
+    ]
+  },
   "files": [
     "dist"
   ]
