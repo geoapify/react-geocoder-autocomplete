@@ -1,7 +1,7 @@
-import { ExampleComponent } from '.'
+import { GeoapifyGeocoderAutocomplete } from '.'
 
-describe('ExampleComponent', () => {
+describe('GeoapifyGeocoderAutocomplete', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(GeoapifyGeocoderAutocomplete).toBeTruthy()
   })
 })
