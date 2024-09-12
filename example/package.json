@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@geoapify/geocoder-autocomplete": "^2.0.1",
+    "@geoapify/geocoder-autocomplete": "^2.0.2",
     "@geoapify/react-geocoder-autocomplete": "file:..",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",

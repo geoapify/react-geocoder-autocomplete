@@ -45,7 +45,7 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "@geoapify/geocoder-autocomplete": "^2.0.1",
+    "@geoapify/geocoder-autocomplete": "^2.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
