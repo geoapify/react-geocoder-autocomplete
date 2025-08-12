@@ -32,7 +32,7 @@ This ensures that both the React wrapper and the underlying geocoder-autocomplet
 | 1.3.x                                  | >= 17.0.0 |
 | 1.4.x                                  | >= 18.0.0 |
 | 1.5.x                                  | >= 18.0.0 |
-| 2.0.x                                  | >= 18.0.0 |
+| 2.0.x                                  | >= 18.0.0, <= 19.x.x |
 
 This table provides compatibility information between different versions of **@geoapify/react-geocoder-autocomplete** and the required minimum version of React. Make sure to choose the appropriate version based on your React project's version.
 

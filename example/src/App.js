@@ -4,7 +4,8 @@ import {
   GeoapifyGeocoderAutocomplete,
   GeoapifyContext
 } from '@geoapify/react-geocoder-autocomplete';
-import '@geoapify/geocoder-autocomplete/styles/minimal.css';
+import '@geoapify/geocoder-autocomplete/styles/round-borders.css';
+import './CustomStyles.css';
 
 const App = () => {
   const [type, setType] = useState();
@@ -251,14 +252,33 @@ const App = () => {
 
     <GeoapifyContext apiKey="00a9862ac01f454887fc285e220d8460">
 
-      <GeoapifyGeocoderAutocomplete
-        placeSelect={onPlaceSelect}
-        suggestionsChange={onSuggectionChange}
-        onUserInput={onUserInput}
-        onOpen={onOpen}
-        onClose={onClose}
-        allowNonVerifiedHouseNumber={true}
-      />
+      {/* Example: Custom styled input with blue theme */}
+      <div style={{ marginBottom: '20px' }}>
+        <h3 style={{ color: '#2c3e50', fontSize: '18px', marginBottom: '10px' }}>🎨 Custom Styled Input</h3>
+        <p style={{ color: '#7f8c8d', fontSize: '14px', marginBottom: '10px' }}>
+          This input uses custom CSS styling. Wrap with a custom class and target <code>.geoapify-autocomplete-input</code>
+        </p>
+        <div className="custom-blue-theme">
+          <GeoapifyGeocoderAutocomplete
+            placeholder="Custom blue styled input..."
+            placeSelect={onPlaceSelect}
+            suggestionsChange={onSuggectionChange}
+            onUserInput={onUserInput}
+            onOpen={onOpen}
+            onClose={onClose}
+            allowNonVerifiedHouseNumber={true}
+          />
+        </div>
+      </div>
+
+      <hr style={{ margin: '20px 0', border: '1px solid #e1e8ed' }} />
+      
+      <div style={{ marginBottom: '20px' }}>
+        <h3 style={{ color: '#2c3e50', fontSize: '18px', marginBottom: '10px' }}>📝 Default Theme Examples</h3>
+        <p style={{ color: '#7f8c8d', fontSize: '14px', marginBottom: '15px' }}>
+          All inputs below use the default <strong>round-borders</strong> theme imported at the top of this file.
+        </p>
+      </div>
 
       <GeoapifyGeocoderAutocomplete
         placeholder="Enter address here"

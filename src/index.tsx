@@ -97,27 +97,27 @@ export const GeoapifyGeocoderAutocomplete = ({
 
   const geocoderAutocomplete: MutableRefObject<
     GeocoderAutocomplete | undefined
-  > = useRef<GeocoderAutocomplete>();
+  > = useRef<GeocoderAutocomplete | undefined>(undefined);
 
   const placeSelectCallbackRef: MutableRefObject<
     ((value: any) => void) | undefined
-  > = useRef<(value: any) => void>();
+  > = useRef<((value: any) => void) | undefined>(undefined);
 
   const suggestionsChangeCallbackRef: MutableRefObject<
     ((value: any) => void) | undefined
-  > = useRef<(value: any) => void>();
+  > = useRef<((value: any) => void) | undefined>(undefined);
 
   const userInputCallbackRef: MutableRefObject<
     ((input: string) => void) | undefined
-  > = useRef<(input: string) => void>();
+  > = useRef<((input: string) => void) | undefined>(undefined);
 
   const openCallbackRef: MutableRefObject<
     ((opened: boolean) => void) | undefined
-  > = useRef<(opened: boolean) => void>();
+  > = useRef<((opened: boolean) => void) | undefined>(undefined);
 
   const closeCallbackRef: MutableRefObject<
     ((opened: boolean) => void) | undefined
-  > = useRef<(opened: boolean) => void>();
+  > = useRef<((opened: boolean) => void) | undefined>(undefined);
 
   placeSelectCallbackRef.current = placeSelectCallback;
   suggestionsChangeCallbackRef.current =  suggestionsChangeCallback;
@@ -206,7 +206,7 @@ export const GeoapifyGeocoderAutocomplete = ({
   }, [langValue]);
 
   useEffect(() => {
-    if (geocoderAutocomplete.current) {
+    if (geocoderAutocomplete.current && positionValue) {
       console.warn(
         "WARNING! Obsolete function called. The  'position' input has been deprecated, please use the new 'biasByLocation' input instead!"
       );
@@ -217,7 +217,7 @@ export const GeoapifyGeocoderAutocomplete = ({
   }, [positionValue]);
 
   useEffect(() => {
-    if (geocoderAutocomplete.current) {
+    if (geocoderAutocomplete.current && countryCodesValue) {
       console.warn(
         "WARNING! Obsolete function called. The  'countryCodes' input has been deprecated, please use the new 'filterByCountryCode' input instead!"
       );
@@ -348,7 +348,7 @@ export const GeoapifyGeocoderAutocomplete = ({
     <div
       className="geocoder-container"
       style={{ position: "relative" }}
-      ref={(el) => (geocoderContainer = el)}
+      ref={(el) => { geocoderContainer = el; }}
     ></div>
   );
 };
