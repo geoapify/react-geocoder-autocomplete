@@ -109,6 +109,8 @@ To integrate the `@geoapify/react-geocoder-autocomplete` component into your Rea
       biasByProximity={biasByProximity}
       placeSelect={onPlaceSelect}
       suggestionsChange={onSuggestionChange}
+      onRequestStart={onRequestStart}
+      onRequestEnd={onRequestEnd}
     />
   </GeoapifyContext>
   ```
@@ -154,6 +156,8 @@ Here are the props for the `GeoapifyGeocoderAutocomplete` component:
 | `onUserInput`                   | (input: string) => void                                                                               | Callback function when user input changes.                                                                                                                                                                                                                                                                 |
 | `onOpen`                        | (opened: boolean) => void                                                                            | Callback function when the suggestions dropdown opens.                                                                                                                                                                                                                                                      |
 | `onClose`                       | (opened: boolean) => void                                                                            | Callback function when the suggestions dropdown closes.                                                                                                                                                                                                                                                     |
+| `onRequestStart`                | (value: string) => void                                                                              | Callback function when a geocoding request starts.                                                                                                                                                                                                                                                         |
+| `onRequestEnd`                  | (success: boolean, data?: any, error?: any) => void                                                 | Callback function when a geocoding request ends. Receives success status, response data (if successful), and error (if failed).                                                                                                                                                                           |
 
 These props allow you to configure and customize the behavior of the `GeoapifyGeocoderAutocomplete` component in your React application.
 

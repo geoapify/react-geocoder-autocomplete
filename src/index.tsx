@@ -57,6 +57,8 @@ export interface GeoapifyGeocoderAutocompleteOptions {
   onUserInput?: (input: string) => void;
   onOpen?: (opened: boolean) => void;
   onClose?: (opened: boolean) => void;
+  onRequestStart?: (value: string) => void;
+  onRequestEnd?: (success: boolean, data?: any, error?: any) => void;
 }
 
 export const GeoapifyGeocoderAutocomplete = ({
@@ -91,6 +93,8 @@ export const GeoapifyGeocoderAutocomplete = ({
   onUserInput: userInputCallback,
   onOpen: openCallback,
   onClose: closeCallback,
+  onRequestStart: requestStartCallback,
+  onRequestEnd: requestEndCallback,
 }: GeoapifyGeocoderAutocompleteOptions) => {
   const apiKey = React.useContext<string>(GeoapifyApiKey);
   let geocoderContainer: HTMLDivElement | null;
@@ -119,12 +123,22 @@ export const GeoapifyGeocoderAutocomplete = ({
     ((opened: boolean) => void) | undefined
   > = useRef<((opened: boolean) => void) | undefined>(undefined);
 
+  const requestStartCallbackRef: MutableRefObject<
+    ((value: string) => void) | undefined
+  > = useRef<((value: string) => void) | undefined>(undefined);
+
+  const requestEndCallbackRef: MutableRefObject<
+    ((success: boolean, data?: any, error?: any) => void) | undefined
+  > = useRef<((success: boolean, data?: any, error?: any) => void) | undefined>(undefined);
+
   placeSelectCallbackRef.current = placeSelectCallback;
   suggestionsChangeCallbackRef.current =  suggestionsChangeCallback;
 
   userInputCallbackRef.current = userInputCallback;
   openCallbackRef.current = openCallback;
   closeCallbackRef.current = closeCallback;
+  requestStartCallbackRef.current = requestStartCallback;
+  requestEndCallbackRef.current = requestEndCallback;
 
   const onSelect = React.useCallback((value: any) => {
     if (placeSelectCallbackRef.current) {
@@ -156,6 +170,18 @@ export const GeoapifyGeocoderAutocomplete = ({
     }
   },[]);
 
+  const onRequestStart = React.useCallback((value: string) => {
+    if (requestStartCallbackRef.current) {
+      requestStartCallbackRef.current(value);
+    }
+  },[]);
+
+  const onRequestEnd = React.useCallback((success: boolean, data?: any, error?: any) => {
+    if (requestEndCallbackRef.current) {
+      requestEndCallbackRef.current(success, data, error);
+    }
+  },[]);
+
   useEffect(() => {
     if(!geocoderAutocomplete.current) {
       geocoderAutocomplete.current = new GeocoderAutocomplete(
@@ -178,6 +204,8 @@ export const GeoapifyGeocoderAutocomplete = ({
     geocoderAutocomplete.current.on("input", onUserInput);
     geocoderAutocomplete.current.on("close", onClose);
     geocoderAutocomplete.current.on("open", onOpen);
+    geocoderAutocomplete.current.on("request_start", onRequestStart);
+    geocoderAutocomplete.current.on("request_end", onRequestEnd);
 
     if (sendGeocoderRequestFuncValue) {
       geocoderAutocomplete.current.setSendGeocoderRequestFunc(sendGeocoderRequestFuncValue)
@@ -189,6 +217,8 @@ export const GeoapifyGeocoderAutocomplete = ({
         geocoderAutocomplete.current.off("input", onUserInput);
         geocoderAutocomplete.current.off("close", onClose);
         geocoderAutocomplete.current.off("open", onOpen);
+        geocoderAutocomplete.current.off("request_start", onRequestStart);
+        geocoderAutocomplete.current.off("request_end", onRequestEnd);
       }
     };
   }, []);

@@ -21,3 +21,38 @@
 .custom-blue-theme .geoapify-autocomplete-suggestion:hover {
   background-color: #e8f4fd;
 }
+
+/* Fix clear button (X) positioning */
+.custom-blue-theme .geoapify-close-button {
+  position: absolute;
+  top: 50%;
+  right: 26px;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+/* Simple loading spinner for input */
+.loading-input-container {
+  position: relative;
+}
+
+.loading-input-container.active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 60px;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  border: 2px solid #4a90e2;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
