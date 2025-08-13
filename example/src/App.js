@@ -10,8 +10,6 @@ import './CustomStyles.css';
 const App = () => {
   const [type, setType] = useState();
   const [language, setLanguage] = useState();
-  const [position, setPosition] = useState();
-  const [countryCodes, setCountryCodes] = useState();
   const [debounceDelay, setDebounceDelay] = useState();
   const [limit, setLimit] = useState();
   const [value, setValue] = useState('');
@@ -23,6 +21,7 @@ const App = () => {
   const [biasByCircle, setBiasByCircle] = useState();
   const [biasByRect, setBiasByRect] = useState();
   const [biasByProximity, setBiasByProximity] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleTypeChange(event) {
     setType(event.target.value);
@@ -35,17 +34,17 @@ const App = () => {
   function handleGeoLocationChange(event) {
     const positionName = event.target.value;
     if (positionName === 'Munich') {
-      setPosition({
+      setBiasByProximity({
         lat: 48.140278,
         lon: 11.562254
       });
     } else if (positionName === 'New York') {
-      setPosition({
+      setBiasByProximity({
         lat: 40.716738,
         lon: -74.001261
       });
     } else if (positionName === "Sydney") {
-      setPosition({
+      setBiasByProximity({
         lat: -33.872866,
         lon: 151.212336
       });
@@ -53,7 +52,7 @@ const App = () => {
   }
 
   function handleCountryCodesChange(event) {
-    setCountryCodes(event.target.value.split(','));
+    setFilterByCountryCode(event.target.value.split(','));
   }
 
   function handleLimitChange(event) {
@@ -181,6 +180,16 @@ const App = () => {
     return geocoder.sendPlaceDetailsRequest(feature);
   }
 
+  function onRequestStart(value) {
+    console.log('🔄 Starting geocoding request for:', value);
+    setIsLoading(true);
+  }
+
+  function onRequestEnd(success, data, error) {
+    console.log(success ? '✅ Geocoding request successful:' : '❌ Geocoding request failed:', success ? data : error);
+    setIsLoading(false);
+  }
+
   return <React.StrictMode><div>
     <div className="setting" onChange={handleTypeChange}>
       <span className="label">Location type:</span>
@@ -252,27 +261,31 @@ const App = () => {
 
     <GeoapifyContext apiKey="00a9862ac01f454887fc285e220d8460">
 
-      {/* Example: Custom styled input with blue theme */}
+
+
+      {/* Example: Custom styled input with blue theme and loading */}
       <div style={{ marginBottom: '20px' }}>
-        <h3 style={{ color: '#2c3e50', fontSize: '18px', marginBottom: '10px' }}>🎨 Custom Styled Input</h3>
+        <h3 style={{ color: '#2c3e50', fontSize: '18px', marginBottom: '10px' }}>🎨 Custom Styled Input with Loading</h3>
         <p style={{ color: '#7f8c8d', fontSize: '14px', marginBottom: '10px' }}>
-          This input uses custom CSS styling. Wrap with a custom class and target <code>.geoapify-autocomplete-input</code>
+          This input demonstrates loading state management using <code>onRequestStart</code> and <code>onRequestEnd</code> callbacks.
         </p>
-        <div className="custom-blue-theme">
+        <div className={`custom-blue-theme loading-input-container ${isLoading ? 'active' : ''}`}>
           <GeoapifyGeocoderAutocomplete
-            placeholder="Custom blue styled input..."
+            placeholder="Type to see loading states..."
             placeSelect={onPlaceSelect}
             suggestionsChange={onSuggectionChange}
             onUserInput={onUserInput}
             onOpen={onOpen}
             onClose={onClose}
+            onRequestStart={onRequestStart}
+            onRequestEnd={onRequestEnd}
             allowNonVerifiedHouseNumber={true}
           />
         </div>
       </div>
 
       <hr style={{ margin: '20px 0', border: '1px solid #e1e8ed' }} />
-      
+
       <div style={{ marginBottom: '20px' }}>
         <h3 style={{ color: '#2c3e50', fontSize: '18px', marginBottom: '10px' }}>📝 Default Theme Examples</h3>
         <p style={{ color: '#7f8c8d', fontSize: '14px', marginBottom: '15px' }}>
@@ -285,8 +298,6 @@ const App = () => {
         value={value}
         type={type}
         lang={language}
-        position={position}
-        countryCodes={countryCodes}
         limit={limit}
         filterByCountryCode={filterByCountryCode}
         filterByCircle={filterByCircle}
@@ -298,6 +309,8 @@ const App = () => {
         biasByProximity={biasByProximity}
         placeSelect={onPlaceSelect}
         suggestionsChange={onSuggectionChange}
+        onRequestStart={onRequestStart}
+        onRequestEnd={onRequestEnd}
         skipIcons={true}
         skipDetails={true}
         skipSelectionOnArrowKey={true}
