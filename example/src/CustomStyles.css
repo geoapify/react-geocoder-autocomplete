@@ -1,0 +1,58 @@
+/* Custom styling example for the first input */
+.custom-blue-theme .geoapify-autocomplete-input {
+  background-color: #f0f8ff;
+  border: 2px solid #4a90e2;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.custom-blue-theme .geoapify-autocomplete-input:focus {
+  outline: none;
+  border-color: #357abd;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.custom-blue-theme .geoapify-autocomplete-suggestions {
+  border: 2px solid #4a90e2;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+
+.custom-blue-theme .geoapify-autocomplete-suggestion:hover {
+  background-color: #e8f4fd;
+}
+
+/* Fix clear button (X) positioning */
+.custom-blue-theme .geoapify-close-button {
+  position: absolute;
+  top: 50%;
+  right: 26px;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+/* Simple loading spinner for input */
+.loading-input-container {
+  position: relative;
+}
+
+.loading-input-container.active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 60px;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  border: 2px solid #4a90e2;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

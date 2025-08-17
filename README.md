@@ -32,7 +32,7 @@ This ensures that both the React wrapper and the underlying geocoder-autocomplet
 | 1.3.x                                  | >= 17.0.0 |
 | 1.4.x                                  | >= 18.0.0 |
 | 1.5.x                                  | >= 18.0.0 |
-| 2.0.x                                  | >= 18.0.0 |
+| 2.0.x                                  | >= 18.0.0, <= 19.x.x |
 
 This table provides compatibility information between different versions of **@geoapify/react-geocoder-autocomplete** and the required minimum version of React. Make sure to choose the appropriate version based on your React project's version.
 
@@ -109,6 +109,8 @@ To integrate the `@geoapify/react-geocoder-autocomplete` component into your Rea
       biasByProximity={biasByProximity}
       placeSelect={onPlaceSelect}
       suggestionsChange={onSuggestionChange}
+      onRequestStart={onRequestStart}
+      onRequestEnd={onRequestEnd}
     />
   </GeoapifyContext>
   ```
@@ -154,6 +156,8 @@ Here are the props for the `GeoapifyGeocoderAutocomplete` component:
 | `onUserInput`                   | (input: string) => void                                                                               | Callback function when user input changes.                                                                                                                                                                                                                                                                 |
 | `onOpen`                        | (opened: boolean) => void                                                                            | Callback function when the suggestions dropdown opens.                                                                                                                                                                                                                                                      |
 | `onClose`                       | (opened: boolean) => void                                                                            | Callback function when the suggestions dropdown closes.                                                                                                                                                                                                                                                     |
+| `onRequestStart`                | (value: string) => void                                                                              | Callback function when a geocoding request starts.                                                                                                                                                                                                                                                         |
+| `onRequestEnd`                  | (success: boolean, data?: any, error?: any) => void                                                 | Callback function when a geocoding request ends. Receives success status, response data (if successful), and error (if failed).                                                                                                                                                                           |
 
 These props allow you to configure and customize the behavior of the `GeoapifyGeocoderAutocomplete` component in your React application.
 
