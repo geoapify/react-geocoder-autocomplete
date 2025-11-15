@@ -26,6 +26,7 @@ nav:
   - Quick Start: quick-start.md
   - API Reference: api-reference.md
   - Examples: examples.md
+  - Standalone Usage: standalone-usage.md
 
 repo_url: https://github.com/geoapify/react-geocoder-autocomplete
 repo_name: GitHub
