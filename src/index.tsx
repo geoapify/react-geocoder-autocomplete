@@ -9,6 +9,8 @@ import {
   ByCircleOptions,
   ByRectOptions,
   ByProximityOptions,
+  Category,
+  ItemType
 } from '@geoapify/geocoder-autocomplete';
 
 export const GeoapifyApiKey = React.createContext<string>('');
@@ -45,6 +47,19 @@ export interface GeoapifyGeocoderAutocompleteOptions {
   allowNonVerifiedHouseNumber?: boolean;
   allowNonVerifiedStreet?: boolean;
 
+  addCategorySearch?: boolean;
+  showPlacesByCategoryList?: boolean;
+  hidePlacesByCategoryListAfterSelect?: boolean;
+  enablePlacesByCategoryLazyLoading?: boolean;
+  placesByCategoryLimit?: number;
+  placesByCategoryFilter?: {
+    [key: string]: ByCircleOptions | ByRectOptions | string;
+  };
+  placesByCategoryBias?: {
+    [key: string]: ByCircleOptions | ByRectOptions | ByProximityOptions;
+  };
+  sendPlacesByCategoryRequestFunc?: (category: string[], offset: number, geocoderAutocomplete: GeocoderAutocomplete) => Promise<any>;
+
   placeSelect?: (value: any) => void;
   suggestionsChange?: (value: any) => void;
 
@@ -59,6 +74,13 @@ export interface GeoapifyGeocoderAutocompleteOptions {
   onClose?: (opened: boolean) => void;
   onRequestStart?: (value: string) => void;
   onRequestEnd?: (success: boolean, data?: any, error?: any) => void;
+  onPlacesByCategoryChange?: (places: any[]) => void;
+  onPlacesByCategoryRequestStart?: (category: Category) => void;
+  onPlacesByCategoryRequestEnd?: (success: boolean, data?: any, error?: any) => void;
+  onPlaceDetailsRequestStart?: (feature: any) => void;
+  onPlaceDetailsRequestEnd?: (success: boolean, data?: any, error?: any) => void;
+  onPlaceByCategorySelect?: (value: {place: any, index: number}) => void;
+  onClear?: (type: ItemType) => void;
 }
 
 export const GeoapifyGeocoderAutocomplete = ({
@@ -83,6 +105,14 @@ export const GeoapifyGeocoderAutocomplete = ({
   allowNonVerifiedHouseNumber: allowNonVerifiedHouseNumberValue,
   allowNonVerifiedStreet: allowNonVerifiedStreetValue,
   addDetails: addDetailsValue,
+  addCategorySearch: addCategorySearchValue,
+  showPlacesByCategoryList: showPlacesByCategoryListValue,
+  hidePlacesByCategoryListAfterSelect: hidePlacesByCategoryListAfterSelectValue,
+  enablePlacesByCategoryLazyLoading: enablePlacesByCategoryLazyLoadingValue,
+  placesByCategoryLimit: placesByCategoryLimitValue,
+  placesByCategoryFilter: placesByCategoryFilterValue,
+  placesByCategoryBias: placesByCategoryBiasValue,
+  sendPlacesByCategoryRequestFunc: sendPlacesByCategoryRequestFuncValue,
   preprocessHook: preprocessHookValue,
   postprocessHook: postprocessHookValue,
   suggestionsFilter: suggestionsFilterValue,
@@ -95,6 +125,13 @@ export const GeoapifyGeocoderAutocomplete = ({
   onClose: closeCallback,
   onRequestStart: requestStartCallback,
   onRequestEnd: requestEndCallback,
+  onPlacesByCategoryChange: placesByCategoryChangeCallback,
+  onPlacesByCategoryRequestStart: placesByCategoryRequestStartCallback,
+  onPlacesByCategoryRequestEnd: placesByCategoryRequestEndCallback,
+  onPlaceDetailsRequestStart: placeDetailsRequestStartCallback,
+  onPlaceDetailsRequestEnd: placeDetailsRequestEndCallback,
+  onPlaceByCategorySelect: placeByCategorySelectCallback,
+  onClear: clearCallback,
 }: GeoapifyGeocoderAutocompleteOptions) => {
   const apiKey = React.useContext<string>(GeoapifyApiKey);
   let geocoderContainer: HTMLDivElement | null;
@@ -131,6 +168,34 @@ export const GeoapifyGeocoderAutocomplete = ({
     ((success: boolean, data?: any, error?: any) => void) | undefined
   > = useRef<((success: boolean, data?: any, error?: any) => void) | undefined>(undefined);
 
+  const placesByCategoryChangeCallbackRef: MutableRefObject<
+    ((places: any[]) => void) | undefined
+  > = useRef<((places: any[]) => void) | undefined>(undefined);
+
+  const placesByCategoryRequestStartCallbackRef: MutableRefObject<
+    ((category: Category) => void) | undefined
+  > = useRef<((category: Category) => void) | undefined>(undefined);
+
+  const placesByCategoryRequestEndCallbackRef: MutableRefObject<
+    ((success: boolean, data?: any, error?: any) => void) | undefined
+  > = useRef<((success: boolean, data?: any, error?: any) => void) | undefined>(undefined);
+
+  const placeDetailsRequestStartCallbackRef: MutableRefObject<
+    ((feature: any) => void) | undefined
+  > = useRef<((feature: any) => void) | undefined>(undefined);
+
+  const placeDetailsRequestEndCallbackRef: MutableRefObject<
+    ((success: boolean, data?: any, error?: any) => void) | undefined
+  > = useRef<((success: boolean, data?: any, error?: any) => void) | undefined>(undefined);
+
+  const placeByCategorySelectCallbackRef: MutableRefObject<
+    ((value: {place: any, index: number}) => void) | undefined
+  > = useRef<((value: {place: any, index: number}) => void) | undefined>(undefined);
+
+  const clearCallbackRef: MutableRefObject<
+    ((type: ItemType) => void) | undefined
+  > = useRef<((type: ItemType) => void) | undefined>(undefined);
+
   placeSelectCallbackRef.current = placeSelectCallback;
   suggestionsChangeCallbackRef.current =  suggestionsChangeCallback;
 
@@ -139,6 +204,13 @@ export const GeoapifyGeocoderAutocomplete = ({
   closeCallbackRef.current = closeCallback;
   requestStartCallbackRef.current = requestStartCallback;
   requestEndCallbackRef.current = requestEndCallback;
+  placesByCategoryChangeCallbackRef.current = placesByCategoryChangeCallback;
+  placesByCategoryRequestStartCallbackRef.current = placesByCategoryRequestStartCallback;
+  placesByCategoryRequestEndCallbackRef.current = placesByCategoryRequestEndCallback;
+  placeDetailsRequestStartCallbackRef.current = placeDetailsRequestStartCallback;
+  placeDetailsRequestEndCallbackRef.current = placeDetailsRequestEndCallback;
+  placeByCategorySelectCallbackRef.current = placeByCategorySelectCallback;
+  clearCallbackRef.current = clearCallback;
 
   const onSelect = React.useCallback((value: any) => {
     if (placeSelectCallbackRef.current) {
@@ -182,6 +254,48 @@ export const GeoapifyGeocoderAutocomplete = ({
     }
   },[]);
 
+  const onPlacesByCategoryChange = React.useCallback((places: any[]) => {
+    if (placesByCategoryChangeCallbackRef.current) {
+      placesByCategoryChangeCallbackRef.current(places);
+    }
+  },[]);
+
+  const onPlacesByCategoryRequestStart = React.useCallback((category: Category) => {
+    if (placesByCategoryRequestStartCallbackRef.current) {
+      placesByCategoryRequestStartCallbackRef.current(category);
+    }
+  },[]);
+
+  const onPlacesByCategoryRequestEnd = React.useCallback((success: boolean, data?: any, error?: any) => {
+    if (placesByCategoryRequestEndCallbackRef.current) {
+      placesByCategoryRequestEndCallbackRef.current(success, data, error);
+    }
+  },[]);
+
+  const onPlaceDetailsRequestStart = React.useCallback((feature: any) => {
+    if (placeDetailsRequestStartCallbackRef.current) {
+      placeDetailsRequestStartCallbackRef.current(feature);
+    }
+  },[]);
+
+  const onPlaceDetailsRequestEnd = React.useCallback((success: boolean, data?: any, error?: any) => {
+    if (placeDetailsRequestEndCallbackRef.current) {
+      placeDetailsRequestEndCallbackRef.current(success, data, error);
+    }
+  },[]);
+
+  const onPlaceByCategorySelect = React.useCallback((value: {place: any, index: number}) => {
+    if (placeByCategorySelectCallbackRef.current) {
+      placeByCategorySelectCallbackRef.current(value);
+    }
+  },[]);
+
+  const onClear = React.useCallback((type: ItemType) => {
+    if (clearCallbackRef.current) {
+      clearCallbackRef.current(type);
+    }
+  },[]);
+
   useEffect(() => {
     if(!geocoderAutocomplete.current) {
       geocoderAutocomplete.current = new GeocoderAutocomplete(
@@ -194,7 +308,14 @@ export const GeoapifyGeocoderAutocomplete = ({
           skipSelectionOnArrowKey: skipSelectionOnArrowKeyValue,
           allowNonVerifiedHouseNumber: allowNonVerifiedHouseNumberValue,
           allowNonVerifiedStreet: allowNonVerifiedStreetValue,
-          debounceDelay: debounceDelayValue || 100
+          debounceDelay: debounceDelayValue || 100,
+          addCategorySearch: addCategorySearchValue,
+          showPlacesList: showPlacesByCategoryListValue,
+          hidePlacesListAfterSelect: hidePlacesByCategoryListAfterSelectValue,
+          enablePlacesLazyLoading: enablePlacesByCategoryLazyLoadingValue,
+          placesLimit: placesByCategoryLimitValue,
+          placesFilter: placesByCategoryFilterValue,
+          placesBias: placesByCategoryBiasValue
         }
       );
     }
@@ -206,10 +327,22 @@ export const GeoapifyGeocoderAutocomplete = ({
     geocoderAutocomplete.current.on("open", onOpen);
     geocoderAutocomplete.current.on("request_start", onRequestStart);
     geocoderAutocomplete.current.on("request_end", onRequestEnd);
+    geocoderAutocomplete.current.on("places", onPlacesByCategoryChange);
+    geocoderAutocomplete.current.on("places_request_start", onPlacesByCategoryRequestStart);
+    geocoderAutocomplete.current.on("places_request_end", onPlacesByCategoryRequestEnd);
+    geocoderAutocomplete.current.on("place_details_request_start", onPlaceDetailsRequestStart);
+    geocoderAutocomplete.current.on("place_details_request_end", onPlaceDetailsRequestEnd);
+    geocoderAutocomplete.current.on("place_select", onPlaceByCategorySelect);
+    geocoderAutocomplete.current.on("clear", onClear);
 
     if (sendGeocoderRequestFuncValue) {
       geocoderAutocomplete.current.setSendGeocoderRequestFunc(sendGeocoderRequestFuncValue)
     }
+
+    if (sendPlacesByCategoryRequestFuncValue) {
+      geocoderAutocomplete.current.setSendPlacesRequestFunc(sendPlacesByCategoryRequestFuncValue)
+    }
+
     return () => {
       if (geocoderAutocomplete.current) {
         geocoderAutocomplete.current.off("select", onSelect);
@@ -219,6 +352,13 @@ export const GeoapifyGeocoderAutocomplete = ({
         geocoderAutocomplete.current.off("open", onOpen);
         geocoderAutocomplete.current.off("request_start", onRequestStart);
         geocoderAutocomplete.current.off("request_end", onRequestEnd);
+        geocoderAutocomplete.current.off("places", onPlacesByCategoryChange);
+        geocoderAutocomplete.current.off("places_request_start", onPlacesByCategoryRequestStart);
+        geocoderAutocomplete.current.off("places_request_end", onPlacesByCategoryRequestEnd);
+        geocoderAutocomplete.current.off("place_details_request_start", onPlaceDetailsRequestStart);
+        geocoderAutocomplete.current.off("place_details_request_end", onPlaceDetailsRequestEnd);
+        geocoderAutocomplete.current.off("place_select", onPlaceByCategorySelect);
+        geocoderAutocomplete.current.off("clear", onClear);
       }
     };
   }, []);
