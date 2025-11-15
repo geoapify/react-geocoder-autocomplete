@@ -1,0 +1,56 @@
+name: Deploy MkDocs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # --- 1. Build React library and demo ---
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Build React library
+        run: |
+          npm run build
+
+      - name: Build demo application
+        run: |
+          cd example && npm ci && npm run build
+
+      # --- 2. Build the MkDocs documentation ---
+      - name: Set up Python 3
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install MkDocs dependencies
+        working-directory: docs-site
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Build MkDocs site
+        working-directory: docs-site
+        run: mkdocs build --strict
+
+      # --- 3. Deploy everything to GitHub Pages ---
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: docs-site/site
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force_orphan: true
+
