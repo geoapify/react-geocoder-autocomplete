@@ -1,6 +1,6 @@
 {
   "name": "@geoapify/react-geocoder-autocomplete",
-  "version": "2.2.1",
+  "version": "3.0.0",
   "description": "React component for the Geoapify Geocoder Autocomplete field",
   "author": {
     "name": "Geoapify GmbH",
@@ -45,7 +45,7 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "@geoapify/geocoder-autocomplete": "^2.2.0",
+    "@geoapify/geocoder-autocomplete": "^3.0.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
@@ -53,7 +53,7 @@
     "@babel/eslint-parser": "^7.28.0",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.33.0",
-    "@geoapify/geocoder-autocomplete": "^2.2.0",
+    "@geoapify/geocoder-autocomplete": "^3.0.1",
     "@types/jest": "^30.0.0",
     "@types/react": "^19.1.10",
     "@typescript-eslint/eslint-plugin": "^8.39.1",
