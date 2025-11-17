@@ -2,8 +2,10 @@
 .custom-blue-theme .geoapify-autocomplete-input {
   background-color: #f0f8ff;
   border: 2px solid #4a90e2;
-  padding: 12px;
+  padding: 14px 16px;
   border-radius: 8px;
+  font-size: 16px;
+  min-height: 52px;
 }
 
 .custom-blue-theme .geoapify-autocomplete-input:focus {
@@ -26,7 +28,7 @@
 .custom-blue-theme .geoapify-close-button {
   position: absolute;
   top: 50%;
-  right: 26px;
+  right: 16px;
   transform: translateY(-50%);
   z-index: 10;
 }
@@ -55,4 +57,35 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Dark theme styles for custom blue theme */
+body.theme-minimal-dark .custom-blue-theme .geoapify-autocomplete-input,
+body.theme-round-borders-dark .custom-blue-theme .geoapify-autocomplete-input {
+  background-color: #1e293b;
+  border-color: #3b82f6;
+  color: #e0e0e0;
+}
+
+body.theme-minimal-dark .custom-blue-theme .geoapify-autocomplete-input:focus,
+body.theme-round-borders-dark .custom-blue-theme .geoapify-autocomplete-input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+body.theme-minimal-dark .custom-blue-theme .geoapify-autocomplete-suggestions,
+body.theme-round-borders-dark .custom-blue-theme .geoapify-autocomplete-suggestions {
+  border-color: #3b82f6;
+  background-color: #1e293b;
+}
+
+body.theme-minimal-dark .custom-blue-theme .geoapify-autocomplete-suggestion:hover,
+body.theme-round-borders-dark .custom-blue-theme .geoapify-autocomplete-suggestion:hover {
+  background-color: #334155;
+}
+
+body.theme-minimal-dark .loading-input-container.active::after,
+body.theme-round-borders-dark .loading-input-container.active::after {
+  border-color: #3b82f6;
+  border-top-color: transparent;
 }

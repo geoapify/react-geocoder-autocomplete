@@ -20,6 +20,8 @@ export default [{
         "**/node_modules/",
         "**/.snapshots/",
         "**/*.min.js",
+        "**/site/",
+        "**/venv/",
     ],
 }, ...compat.extends("eslint:recommended", "plugin:@typescript-eslint/recommended"), {
     languageOptions: {

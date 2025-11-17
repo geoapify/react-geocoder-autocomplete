@@ -1,0 +1,267 @@
+.demo-index {
+  min-height: 100vh;
+  background: radial-gradient(1200px 600px at 10% -10%, rgba(46, 162, 255, 0.12), transparent 60%),
+    radial-gradient(800px 400px at 90% -20%, rgba(46, 162, 255, 0.10), transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+  background-attachment: fixed;
+}
+
+.demo-index .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+.brand-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  line-height: 1.2;
+  justify-content: center;
+  margin-top: 8px;
+  color: #0b1526;
+  font-weight: 700;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 36px;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.brand-icon {
+  display: flex;
+  align-items: center;
+}
+
+.brand-icon svg {
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+
+.description {
+  text-align: center;
+  color: #6b7a90;
+  font-size: 1.05rem;
+  margin: 8px auto 28px;
+  max-width: 860px;
+  font-weight: 500;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+}
+
+.samples-section {
+  margin-top: 36px;
+}
+
+.sample-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, .04);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sample-table::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(46, 162, 255, 0.35), rgba(46, 162, 255, 0));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.sample-table th,
+.sample-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e6ecf5;
+  vertical-align: top;
+}
+
+.sample-table th {
+  text-align: left;
+  background: #f3f7fb;
+  color: #425569;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.sample-table tr:last-child td {
+  border-bottom: none;
+}
+
+.sample-table tbody tr:nth-child(odd) td {
+  background: #ffffff;
+}
+
+.sample-table tbody tr:nth-child(even) td {
+  background: #f7fbff;
+}
+
+.sample-title {
+  font-weight: 700;
+  color: #0b1526;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.sample-desc {
+  color: #6b7a90;
+  font-size: .92rem;
+  line-height: 1.45;
+  font-weight: 500;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.sample-desc a {
+  color: #2ea2ff;
+  text-decoration: none;
+}
+
+.sample-desc a:hover {
+  text-decoration: underline;
+}
+
+.tag {
+  display: inline-block;
+  background: #f3f7fb;
+  border: 1px solid #e9eff7;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #425569;
+  margin-right: 6px;
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.sample-link {
+  display: inline-block;
+  background: #2ea2ff;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: .92rem;
+  letter-spacing: .01em;
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
+  box-shadow: 0 6px 16px rgba(46,162,255,.3);
+  cursor: pointer;
+  border: none;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.sample-link:hover {
+  background: #1b91f0;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(46,162,255,.35);
+}
+
+.footer-note {
+  margin-top: 40px;
+  text-align: center;
+  color: #7f8c8d;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.footer-note a {
+  color: #2ea2ff;
+  text-decoration: none;
+}
+
+.footer-note a:hover {
+  text-decoration: underline;
+}
+
+/* Dark theme styles */
+body.theme-minimal-dark .demo-index,
+body.theme-round-borders-dark .demo-index {
+  background: #1a1a1a;
+}
+
+body.theme-minimal-dark .brand-title,
+body.theme-round-borders-dark .brand-title {
+  color: #e0e0e0;
+}
+
+body.theme-minimal-dark .description,
+body.theme-round-borders-dark .description {
+  color: #9ca3af;
+}
+
+body.theme-minimal-dark .sample-table,
+body.theme-round-borders-dark .sample-table {
+  background: #242424;
+  border-color: #3a3a3a;
+}
+
+body.theme-minimal-dark .sample-table th,
+body.theme-round-borders-dark .sample-table th {
+  background: #2a2a2a;
+  color: #cbd5e1;
+}
+
+body.theme-minimal-dark .sample-table tbody tr:nth-child(odd) td,
+body.theme-round-borders-dark .sample-table tbody tr:nth-child(odd) td {
+  background: #242424;
+}
+
+body.theme-minimal-dark .sample-table tbody tr:nth-child(even) td,
+body.theme-round-borders-dark .sample-table tbody tr:nth-child(even) td {
+  background: #2a2a2a;
+}
+
+body.theme-minimal-dark .sample-table td,
+body.theme-round-borders-dark .sample-table td {
+  border-bottom-color: #3a3a3a;
+  color: #e0e0e0;
+}
+
+body.theme-minimal-dark .sample-title,
+body.theme-round-borders-dark .sample-title {
+  color: #e0e0e0;
+}
+
+body.theme-minimal-dark .sample-desc,
+body.theme-round-borders-dark .sample-desc {
+  color: #9ca3af;
+}
+
+body.theme-minimal-dark .tag,
+body.theme-round-borders-dark .tag {
+  background: #374151;
+  border-color: #4b5563;
+  color: #9ca3af;
+}
+
+body.theme-minimal-dark .sample-link,
+body.theme-round-borders-dark .sample-link {
+  background: #374151;
+  color: #e5e7eb;
+  border-color: #4b5563;
+}
+
+body.theme-minimal-dark .sample-link:hover,
+body.theme-round-borders-dark .sample-link:hover {
+  background: #4b5563;
+  border-color: #6b7280;
+}
+
+body.theme-minimal-dark .footer-note,
+body.theme-round-borders-dark .footer-note {
+  color: #9ca3af;
+}
+
+body.theme-minimal-dark .footer-note a,
+body.theme-round-borders-dark .footer-note a {
+  color: #60a5fa;
+}
+

@@ -1,0 +1,111 @@
+.playground-demo {
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 40px 20px;
+}
+
+.playground-demo .container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.playground-demo .geocoder-container {
+  width: 100%;
+}
+
+.playground-demo .geoapify-autocomplete-input {
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+.playground-demo h1 {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.playground-demo .setting {
+  background: white;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0 15px;
+  align-items: start;
+}
+
+.playground-demo .label {
+  font-weight: 600;
+  color: #2c3e50;
+  padding-top: 2px;
+}
+
+.playground-demo .options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.playground-demo .setting label {
+  white-space: nowrap;
+}
+
+.playground-demo input[type="radio"] {
+  margin: 0 5px 0 15px;
+  cursor: pointer;
+}
+
+.playground-demo .setting label {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+/* Dark theme styles */
+body.theme-minimal-dark .playground-demo,
+body.theme-round-borders-dark .playground-demo {
+  background: #1a1a1a;
+}
+
+body.theme-minimal-dark .playground-demo h1,
+body.theme-round-borders-dark .playground-demo h1 {
+  color: #e0e0e0;
+}
+
+body.theme-minimal-dark .playground-demo h3,
+body.theme-round-borders-dark .playground-demo h3 {
+  color: #e0e0e0 !important;
+}
+
+body.theme-minimal-dark .playground-demo .setting,
+body.theme-round-borders-dark .playground-demo .setting {
+  background: #242424;
+  color: #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+body.theme-minimal-dark .playground-demo .label,
+body.theme-round-borders-dark .playground-demo .label {
+  color: #e0e0e0;
+}
+
+body.theme-minimal-dark .playground-demo p,
+body.theme-round-borders-dark .playground-demo p {
+  color: #9ca3af !important;
+}
+
+body.theme-minimal-dark .playground-demo hr,
+body.theme-round-borders-dark .playground-demo hr {
+  border-color: #3a3a3a !important;
+}
+
+body.theme-minimal-dark .playground-demo code,
+body.theme-round-borders-dark .playground-demo code {
+  background: #374151;
+  color: #e0e0e0;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+

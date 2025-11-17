@@ -1,0 +1,365 @@
+.address-form-demo {
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 40px 20px;
+}
+
+.address-form-demo .geocoder-container {
+  width: 100%;
+}
+
+.address-form-demo .geoapify-autocomplete-input {
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+.address-form-demo .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.address-form-demo h1 {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.hint {
+  color: #7f8c8d;
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.panel {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.section-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
+  background: #2ea2ff;
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.section-heading {
+  font-size: 20px;
+  color: #2c3e50;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.panel h3 {
+  font-size: 18px;
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+  font-weight: 600;
+}
+
+.autocomplete-container {
+  position: relative;
+}
+
+.search-hint {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.search-hint a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.search-hint a:hover {
+  text-decoration: underline;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field-wide {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 6px;
+}
+
+.form-field input {
+  padding: 10px 12px;
+  border: 1px solid #e1e8ed;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-field input.highlight {
+  animation: highlightPulse 1.8s ease-out;
+  border-color: #667eea;
+}
+
+@keyframes highlightPulse {
+  0%, 100% {
+    background: white;
+    transform: scale(1);
+  }
+  10% {
+    background: #e3f2fd;
+    transform: scale(1.02);
+  }
+  50% {
+    background: #e3f2fd;
+  }
+}
+
+@keyframes highlightPulseDark {
+  0%, 100% {
+    background: #374151;
+    transform: scale(1);
+  }
+  10% {
+    background: #1e3a5f;
+    transform: scale(1.02);
+  }
+  50% {
+    background: #1e3a5f;
+  }
+}
+
+.warning-message {
+  margin-top: 15px;
+  padding: 12px;
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 6px;
+  color: #856404;
+  font-size: 14px;
+}
+
+.confirm-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.confirm-hint {
+  color: #64748b;
+  font-size: 14px;
+  flex: 1;
+}
+
+.confirm-button {
+  padding: 10px 24px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.2);
+}
+
+.confirm-button:hover:not(:disabled) {
+  background: #5568d3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+.confirm-button:disabled {
+  background: #cbd5e0;
+  color: #9ca3af;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+.success-message {
+  margin-top: 15px;
+  padding: 12px;
+  background: #d4edda;
+  border: 1px solid #28a745;
+  border-radius: 6px;
+  color: #155724;
+  font-size: 14px;
+}
+
+.match-badge {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.match-badge.is-building {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #28a745;
+}
+
+.match-badge.is-street {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffc107;
+}
+
+.match-badge.is-city {
+  background: #cce5ff;
+  color: #004085;
+  border: 1px solid #007bff;
+}
+
+.match-badge.is-ambiguous {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #dc3545;
+}
+
+.dev-panel {
+  background: #f8f9fa;
+  border-left: 4px solid #667eea;
+}
+
+.dev-status {
+  margin-bottom: 15px;
+  padding: 12px;
+  background: white;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.dev-meta {
+  margin-bottom: 15px;
+  padding: 12px;
+  background: white;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.dev-code {
+  background: #2c3e50;
+  color: #ecf0f1;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 12px;
+  overflow-x: auto;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Dark theme styles */
+body.theme-minimal-dark .search-hint,
+body.theme-round-borders-dark .search-hint {
+  color: #9ca3af;
+}
+
+body.theme-minimal-dark .search-hint a,
+body.theme-round-borders-dark .search-hint a {
+  color: #60a5fa;
+}
+
+body.theme-minimal-dark .confirm-hint,
+body.theme-round-borders-dark .confirm-hint {
+  color: #9ca3af;
+}
+
+body.theme-minimal-dark .confirm-button,
+body.theme-round-borders-dark .confirm-button {
+  background: #374151;
+  color: #d1d5db;
+  border-color: #4b5563;
+}
+
+body.theme-minimal-dark .confirm-button:hover:not(:disabled),
+body.theme-round-borders-dark .confirm-button:hover:not(:disabled) {
+  background: #4b5563;
+  border-color: #6b7280;
+}
+
+body.theme-minimal-dark .confirm-button:disabled,
+body.theme-round-borders-dark .confirm-button:disabled {
+  background: #1f2937;
+  color: #4b5563;
+  border-color: #374151;
+}
+
+body.theme-minimal-dark .form-field input.highlight,
+body.theme-round-borders-dark .form-field input.highlight {
+  animation: highlightPulseDark 1.8s ease-out;
+  border-color: #60a5fa;
+}
+
+body.theme-minimal-dark .dev-panel,
+body.theme-round-borders-dark .dev-panel {
+  background: #1f2937;
+  border-left-color: #60a5fa;
+}
+
+body.theme-minimal-dark .dev-status,
+body.theme-round-borders-dark .dev-status {
+  background: #374151;
+  color: #e5e7eb;
+}
+
+body.theme-minimal-dark .dev-meta,
+body.theme-round-borders-dark .dev-meta {
+  background: #374151;
+  color: #e5e7eb;
+}
+
+body.theme-minimal-dark .dev-code,
+body.theme-round-borders-dark .dev-code {
+  background: #1f2937;
+  color: #e5e7eb;
+  border: 1px solid #374151;
+}
+
