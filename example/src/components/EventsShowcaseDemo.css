@@ -106,41 +106,46 @@
 }
 
 .console {
-  background: #1e1e1e;
-  color: #d4d4d4;
-  padding: 15px;
+  background: #0b1526;
+  color: #d7e3ef;
+  padding: 10px;
   border-radius: 8px;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 13px;
-  max-height: 500px;
-  overflow-y: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  max-height: 380px;
+  overflow: auto;
   line-height: 1.6;
+  border: 1px solid #152238;
 }
 
 .console .line {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 8px;
-  padding: 4px 0;
-  border-bottom: 1px solid #2d2d2d;
+  white-space: pre-wrap;
+  border-bottom: 1px dashed rgba(255,255,255,0.06);
+  padding: 6px 4px;
+}
+
+.console .line:last-child {
+  border-bottom: none;
 }
 
 .console .ts {
-  color: #858585;
-  min-width: 100px;
-  font-weight: 600;
+  color: #8fb1d1;
+  margin-right: 8px;
 }
 
 .console .evt {
-  color: #4ec9b0;
-  min-width: 220px;
+  display: inline-block;
+  background: #12243a;
+  color: #a3c7ff;
+  border: 1px solid #223955;
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin-right: 8px;
   font-weight: 600;
 }
 
 .console .payload {
-  color: #ce9178;
-  flex: 1;
-  word-break: break-word;
+  color: #cfe5ff;
 }
 
 .empty-console {

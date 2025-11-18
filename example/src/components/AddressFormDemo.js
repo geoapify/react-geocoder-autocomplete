@@ -244,9 +244,12 @@ const AddressFormDemo = () => {
             </div>
             <div className="autocomplete-container">
               <GeoapifyGeocoderAutocomplete
-                placeholder="Start typing an address…"
+                allowNonVerifiedHouseNumber={true}
+                allowNonVerifiedStreet={true}
+                skipIcons={true}
+                placeholder=" "
+                skipSelectionOnArrowKey={true}
                 placeSelect={onAddressSelected}
-                addDetails={true}
               />
               <p className="search-hint">
                 Use search to start. We'll prefill; you review and complete. Can't find your exact address? <a href="#" onClick={handleEnterManually}>Enter it manually</a>.

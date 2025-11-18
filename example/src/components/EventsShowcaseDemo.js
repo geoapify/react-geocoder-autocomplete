@@ -194,6 +194,7 @@ const EventsShowcaseDemo = () => {
               <GeoapifyGeocoderAutocomplete
                 showPlacesByCategoryList={true}
                 enablePlacesByCategoryLazyLoading={true}
+                placesByCategoryLimit={10}
                 limit={8}
                 hidePlacesByCategoryListAfterSelect={true}
                 skipIcons={false}

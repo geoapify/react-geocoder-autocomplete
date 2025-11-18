@@ -439,7 +439,7 @@ export const GeoapifyGeocoderAutocomplete = ({
         filterByPlaceValue as string
       );
     }
-  }, [filterByRectValue]);
+  }, [filterByPlaceValue]);
 
   useEffect(() => {
     if (geocoderAutocomplete.current) {

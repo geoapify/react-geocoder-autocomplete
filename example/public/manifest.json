@@ -1,6 +1,6 @@
 {
-  "short_name": "react-geocoder-autocomplete",
-  "name": "react-geocoder-autocomplete",
+  "short_name": "React Geocoder",
+  "name": "React Geocoder Autocomplete Demo",
   "icons": [
     {
       "src": "favicon.ico",
