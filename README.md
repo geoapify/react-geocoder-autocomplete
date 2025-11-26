@@ -4,8 +4,8 @@
 React component wrapper around [@geoapify/geocoder-autocomplete](https://www.npmjs.com/package/@geoapify/geocoder-autocomplete). It adds React-friendly props, callbacks, and tooling so you can search addresses or Geoapify Places categories with minimal setup.
 
 ## Quick Links
-- [📚 Full documentation](docs-site/docs/index.md) – includes Quick Start, API reference, and examples.
-- [⚡ Quick Start guide](docs-site/docs/quick-start.md) – install + configure in minutes.
+- [📚 Full documentation](https://geoapify.github.io/react-geocoder-autocomplete/) – includes Quick Start, API reference, and examples.
+- [⚡ Quick Start guide](https://geoapify.github.io/react-geocoder-autocomplete/quick-start) – install + configure in minutes.
 - [🎯 Examples](docs-site/docs/examples.md) – ready-to-copy snippets (filters, category search, events).
 - [🧪 Demo application](example/) – React app showcasing every feature.
 - [🛠 Build guide](BUILD.md) – scripts, docs, and publishing checklist.
