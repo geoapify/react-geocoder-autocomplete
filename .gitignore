@@ -11,8 +11,6 @@ dist
 
 # misc
 .DS_Store
-.env
-.env.local
 .env.development.local
 .env.test.local
 .env.production.local
@@ -29,3 +27,4 @@ yarn-error.log*
 docs-site/venv/
 docs-site/site/
 docs-site/.cache/
+config.bat
