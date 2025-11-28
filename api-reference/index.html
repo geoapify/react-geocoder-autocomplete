@@ -1,0 +1,2448 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://geoapify.github.io/react-geocoder-autocomplete/api-reference/">
+      
+      
+        <link rel="prev" href="../quick-start/">
+      
+      
+        <link rel="next" href="../examples/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>API Reference - React Geocoder Autocomplete</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="React Geocoder Autocomplete" class="md-header__button md-logo" aria-label="React Geocoder Autocomplete" data-md-component="logo">
+      
+  <img src="../assets/geoapify-white-logo-only.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            React Geocoder Autocomplete
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/geoapify/react-geocoder-autocomplete" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="React Geocoder Autocomplete" class="md-nav__button md-logo" aria-label="React Geocoder Autocomplete" data-md-component="logo">
+      
+  <img src="../assets/geoapify-white-logo-only.png" alt="logo">
+
+    </a>
+    React Geocoder Autocomplete
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/geoapify/react-geocoder-autocomplete" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#props-and-callbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Props and Callbacks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Props and Callbacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#value-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        value (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placeholder-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        placeholder (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        type (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lang-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lang (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limit-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        limit (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debouncedelay-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        debounceDelay (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterbycountrycode-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filterByCountryCode (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterbycircle-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filterByCircle (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterbyrect-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filterByRect (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterbyplace-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filterByPlace (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biasbyproximity-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        biasByProximity (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biasbycountrycode-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        biasByCountryCode (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biasbycircle-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        biasByCircle (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biasbyrect-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        biasByRect (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skipicons-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        skipIcons (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adddetails-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        addDetails (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allownonverifiedhousenumber-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        allowNonVerifiedHouseNumber (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allownonverifiedstreet-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        allowNonVerifiedStreet (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skipselectiononarrowkey-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        skipSelectionOnArrowKey (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addcategorysearch-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        addCategorySearch (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showplacesbycategorylist-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        showPlacesByCategoryList (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hideplacesbycategorylistafterselect-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hidePlacesByCategoryListAfterSelect (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enableplacesbycategorylazyloading-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enablePlacesByCategoryLazyLoading (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placesbycategorylimit-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        placesByCategoryLimit (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placesbycategoryfilter-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        placesByCategoryFilter (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placesbycategorybias-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        placesByCategoryBias (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preprocesshook-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        preprocessHook (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postprocesshook-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        postprocessHook (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestionsfilter-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        suggestionsFilter (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sendgeocoderrequestfunc-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sendGeocoderRequestFunc (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sendplacedetailsrequestfunc-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sendPlaceDetailsRequestFunc (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sendplacesbycategoryrequestfunc-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sendPlacesByCategoryRequestFunc (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placeselect-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        placeSelect (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestionschange-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        suggestionsChange (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onuserinput-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onUserInput (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onopen-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onOpen (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onclose-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onClose (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onrequeststart-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onRequestStart (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onrequestend-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onRequestEnd (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onplacesbycategorychange-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onPlacesByCategoryChange (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onplacesbycategoryrequeststart-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onPlacesByCategoryRequestStart (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onplacesbycategoryrequestend-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onPlacesByCategoryRequestEnd (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onplacedetailsrequeststart-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onPlaceDetailsRequestStart (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onplacedetailsrequestend-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onPlaceDetailsRequestEnd (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onplacebycategoryselect-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onPlaceByCategorySelect (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onclear-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onClear (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learn More
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standalone-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standalone Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#props-and-callbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Props and Callbacks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Props and Callbacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#value-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        value (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placeholder-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        placeholder (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        type (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lang-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lang (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limit-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        limit (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debouncedelay-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        debounceDelay (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterbycountrycode-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filterByCountryCode (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterbycircle-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filterByCircle (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterbyrect-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filterByRect (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterbyplace-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filterByPlace (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biasbyproximity-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        biasByProximity (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biasbycountrycode-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        biasByCountryCode (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biasbycircle-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        biasByCircle (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biasbyrect-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        biasByRect (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skipicons-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        skipIcons (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adddetails-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        addDetails (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allownonverifiedhousenumber-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        allowNonVerifiedHouseNumber (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allownonverifiedstreet-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        allowNonVerifiedStreet (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skipselectiononarrowkey-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        skipSelectionOnArrowKey (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addcategorysearch-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        addCategorySearch (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showplacesbycategorylist-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        showPlacesByCategoryList (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hideplacesbycategorylistafterselect-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hidePlacesByCategoryListAfterSelect (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enableplacesbycategorylazyloading-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enablePlacesByCategoryLazyLoading (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placesbycategorylimit-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        placesByCategoryLimit (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placesbycategoryfilter-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        placesByCategoryFilter (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placesbycategorybias-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        placesByCategoryBias (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preprocesshook-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        preprocessHook (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postprocesshook-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        postprocessHook (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestionsfilter-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        suggestionsFilter (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sendgeocoderrequestfunc-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sendGeocoderRequestFunc (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sendplacedetailsrequestfunc-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sendPlaceDetailsRequestFunc (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sendplacesbycategoryrequestfunc-prop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sendPlacesByCategoryRequestFunc (Prop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placeselect-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        placeSelect (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestionschange-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        suggestionsChange (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onuserinput-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onUserInput (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onopen-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onOpen (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onclose-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onClose (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onrequeststart-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onRequestStart (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onrequestend-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onRequestEnd (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onplacesbycategorychange-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onPlacesByCategoryChange (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onplacesbycategoryrequeststart-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onPlacesByCategoryRequestStart (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onplacesbycategoryrequestend-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onPlacesByCategoryRequestEnd (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onplacedetailsrequeststart-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onPlaceDetailsRequestStart (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onplacedetailsrequestend-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onPlaceDetailsRequestEnd (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onplacebycategoryselect-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onPlaceByCategorySelect (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onclear-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onClear (Callback)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learn More
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="api-reference">API Reference</h1>
+<p>The React Geocoder Autocomplete component exposes several <strong>props</strong> and <strong>callbacks</strong> that control how address suggestions are fetched, filtered, and displayed.</p>
+<h2 id="props-and-callbacks">Props and Callbacks</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Direction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>value</code></td>
+<td><code>string</code></td>
+<td>Prop</td>
+<td>Current value of the input field.</td>
+</tr>
+<tr>
+<td><code>placeholder</code></td>
+<td><code>string</code></td>
+<td>Prop</td>
+<td>Text shown when the input is empty.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>LocationType</code></td>
+<td>Prop</td>
+<td>Type of place to search for (<code>country</code>, <code>city</code>, <code>street</code>, etc.).</td>
+</tr>
+<tr>
+<td><code>lang</code></td>
+<td><code>SupportedLanguage</code></td>
+<td>Prop</td>
+<td>Language of suggestions and results.</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td><code>number</code></td>
+<td>Prop</td>
+<td>Max number of suggestions to show.</td>
+</tr>
+<tr>
+<td><code>debounceDelay</code></td>
+<td><code>number</code></td>
+<td>Prop</td>
+<td>Delay (ms) before sending requests after typing.</td>
+</tr>
+<tr>
+<td><code>filterByCountryCode</code></td>
+<td><code>ByCountryCodeOptions</code></td>
+<td>Prop</td>
+<td>Restrict results to selected countries.</td>
+</tr>
+<tr>
+<td><code>filterByCircle</code></td>
+<td><code>ByCircleOptions</code></td>
+<td>Prop</td>
+<td>Limit search within a circular area.</td>
+</tr>
+<tr>
+<td><code>filterByRect</code></td>
+<td><code>ByRectOptions</code></td>
+<td>Prop</td>
+<td>Limit search within a rectangle.</td>
+</tr>
+<tr>
+<td><code>filterByPlace</code></td>
+<td><code>string</code></td>
+<td>Prop</td>
+<td>Filter by specific place ID.</td>
+</tr>
+<tr>
+<td><code>biasByProximity</code></td>
+<td><code>ByProximityOptions</code></td>
+<td>Prop</td>
+<td>Prioritize results near a given point.</td>
+</tr>
+<tr>
+<td><code>biasByCountryCode</code></td>
+<td><code>ByCountryCodeOptions</code></td>
+<td>Prop</td>
+<td>Prioritize results from certain countries.</td>
+</tr>
+<tr>
+<td><code>biasByCircle</code></td>
+<td><code>ByCircleOptions</code></td>
+<td>Prop</td>
+<td>Bias results within a circle.</td>
+</tr>
+<tr>
+<td><code>biasByRect</code></td>
+<td><code>ByRectOptions</code></td>
+<td>Prop</td>
+<td>Bias results within a rectangle.</td>
+</tr>
+<tr>
+<td><code>skipIcons</code></td>
+<td><code>boolean</code></td>
+<td>Prop</td>
+<td>Hide icons in the suggestions list.</td>
+</tr>
+<tr>
+<td><code>addDetails</code></td>
+<td><code>boolean</code></td>
+<td>Prop</td>
+<td>Include detailed place info in results.</td>
+</tr>
+<tr>
+<td><code>allowNonVerifiedHouseNumber</code></td>
+<td><code>boolean</code></td>
+<td>Prop</td>
+<td>Allow house numbers not verified in data.</td>
+</tr>
+<tr>
+<td><code>allowNonVerifiedStreet</code></td>
+<td><code>boolean</code></td>
+<td>Prop</td>
+<td>Allow street names not verified in data.</td>
+</tr>
+<tr>
+<td><code>skipSelectionOnArrowKey</code></td>
+<td><code>boolean</code></td>
+<td>Prop</td>
+<td>Disable auto-select with arrow keys.</td>
+</tr>
+<tr>
+<td><code>addCategorySearch</code></td>
+<td><code>boolean</code></td>
+<td>Prop</td>
+<td>Enable category-based (POI) search.</td>
+</tr>
+<tr>
+<td><code>showPlacesByCategoryList</code></td>
+<td><code>boolean</code></td>
+<td>Prop</td>
+<td>Display POI list under the field.</td>
+</tr>
+<tr>
+<td><code>hidePlacesByCategoryListAfterSelect</code></td>
+<td><code>boolean</code></td>
+<td>Prop</td>
+<td>Hide POI list after selection.</td>
+</tr>
+<tr>
+<td><code>enablePlacesByCategoryLazyLoading</code></td>
+<td><code>boolean</code></td>
+<td>Prop</td>
+<td>Load additional POI items dynamically.</td>
+</tr>
+<tr>
+<td><code>placesByCategoryLimit</code></td>
+<td><code>number</code></td>
+<td>Prop</td>
+<td>Max number of POIs to display.</td>
+</tr>
+<tr>
+<td><code>placesByCategoryFilter</code></td>
+<td><code>object</code></td>
+<td>Prop</td>
+<td>Filters for category-based search.</td>
+</tr>
+<tr>
+<td><code>placesByCategoryBias</code></td>
+<td><code>object</code></td>
+<td>Prop</td>
+<td>Bias rules for category-based search.</td>
+</tr>
+<tr>
+<td><code>preprocessHook</code></td>
+<td><code>(value: string) =&gt; string</code></td>
+<td>Prop</td>
+<td>Modify input before request.</td>
+</tr>
+<tr>
+<td><code>postprocessHook</code></td>
+<td><code>(feature: any) =&gt; string</code></td>
+<td>Prop</td>
+<td>Modify selected result before display.</td>
+</tr>
+<tr>
+<td><code>suggestionsFilter</code></td>
+<td><code>(features: any[]) =&gt; any[]</code></td>
+<td>Prop</td>
+<td>Filter suggestions before display.</td>
+</tr>
+<tr>
+<td><code>sendGeocoderRequestFunc</code></td>
+<td><code>(value: string, geocoder: GeocoderAutocomplete) =&gt; Promise&lt;any&gt;</code></td>
+<td>Prop</td>
+<td>Custom function to send geocoder requests.</td>
+</tr>
+<tr>
+<td><code>sendPlaceDetailsRequestFunc</code></td>
+<td><code>(feature: any, geocoder: GeocoderAutocomplete) =&gt; Promise&lt;any&gt;</code></td>
+<td>Prop</td>
+<td>Custom function to send place details requests.</td>
+</tr>
+<tr>
+<td><code>sendPlacesByCategoryRequestFunc</code></td>
+<td><code>(category: string[], offset: number, geocoder: GeocoderAutocomplete) =&gt; Promise&lt;any&gt;</code></td>
+<td>Prop</td>
+<td>Custom function to send places by category requests.</td>
+</tr>
+<tr>
+<td><code>placeSelect</code></td>
+<td><code>(feature: any) =&gt; void</code></td>
+<td>Callback</td>
+<td>Fires when a user selects a place.</td>
+</tr>
+<tr>
+<td><code>suggestionsChange</code></td>
+<td><code>(features: any[]) =&gt; void</code></td>
+<td>Callback</td>
+<td>Fires when suggestions are updated.</td>
+</tr>
+<tr>
+<td><code>onUserInput</code></td>
+<td><code>(input: string) =&gt; void</code></td>
+<td>Callback</td>
+<td>Fires on user input changes.</td>
+</tr>
+<tr>
+<td><code>onOpen</code></td>
+<td><code>(opened: boolean) =&gt; void</code></td>
+<td>Callback</td>
+<td>Fires when the dropdown opens.</td>
+</tr>
+<tr>
+<td><code>onClose</code></td>
+<td><code>(opened: boolean) =&gt; void</code></td>
+<td>Callback</td>
+<td>Fires when the dropdown closes.</td>
+</tr>
+<tr>
+<td><code>onRequestStart</code></td>
+<td><code>(query: string) =&gt; void</code></td>
+<td>Callback</td>
+<td>Fires when a geocoding request starts.</td>
+</tr>
+<tr>
+<td><code>onRequestEnd</code></td>
+<td><code>(success: boolean, data?: any, error?: any) =&gt; void</code></td>
+<td>Callback</td>
+<td>Fires when a geocoding request completes.</td>
+</tr>
+<tr>
+<td><code>onPlacesByCategoryChange</code></td>
+<td><code>(places: any[]) =&gt; void</code></td>
+<td>Callback</td>
+<td>Emits POI results when category search is active.</td>
+</tr>
+<tr>
+<td><code>onPlacesByCategoryRequestStart</code></td>
+<td><code>(category: Category) =&gt; void</code></td>
+<td>Callback</td>
+<td>Fires when a POI request starts.</td>
+</tr>
+<tr>
+<td><code>onPlacesByCategoryRequestEnd</code></td>
+<td><code>(success: boolean, data?: any, error?: any) =&gt; void</code></td>
+<td>Callback</td>
+<td>Fires when a POI request ends.</td>
+</tr>
+<tr>
+<td><code>onPlaceDetailsRequestStart</code></td>
+<td><code>(feature: any) =&gt; void</code></td>
+<td>Callback</td>
+<td>Fires when a place details request starts.</td>
+</tr>
+<tr>
+<td><code>onPlaceDetailsRequestEnd</code></td>
+<td><code>(success: boolean, data?: any, error?: any) =&gt; void</code></td>
+<td>Callback</td>
+<td>Fires when a place details request ends.</td>
+</tr>
+<tr>
+<td><code>onPlaceByCategorySelect</code></td>
+<td><code>(value: {place: any, index: number}) =&gt; void</code></td>
+<td>Callback</td>
+<td>Fires when a POI is selected from the list.</td>
+</tr>
+<tr>
+<td><code>onClear</code></td>
+<td><code>(type: ItemType) =&gt; void</code></td>
+<td>Callback</td>
+<td>Fires when the field or selection is cleared.</td>
+</tr>
+</tbody>
+</table>
+<p>Each prop allows you to control how the autocomplete behaves and appears.
+Props can be bound to React component state, enabling dynamic updates and reactive configurations.</p>
+<p>Below are examples showing how to define these properties in your component and use them in JSX.</p>
+<h3 id="value-prop"><code>value</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>string</code>
+<strong>Description:</strong> Sets or retrieves the current value of the autocomplete input field.
+Can be bound to a component state for dynamic updates.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">address</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">address</span><span class="p">,</span><span class="w"> </span><span class="nx">setAddress</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;New York, USA&#39;</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="placeholder-prop"><code>placeholder</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>string</code>
+<strong>Description:</strong> Text shown when the field is empty.
+Commonly used to hint at what users can type.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">placeholder</span><span class="o">=</span><span class="p">{</span><span class="nx">placeholderText</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">placeholderText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Search for a location&#39;</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="type-prop"><code>type</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>LocationType</code>
+<strong>Description:</strong> Defines the type of place to search for — such as <code>'country'</code>, <code>'city'</code>, <code>'postcode'</code>, <code>'street'</code>, or <code>'amenity'</code>.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">type</span><span class="o">=</span><span class="p">{</span><span class="nx">locationType</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">locationType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;city&#39;</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="lang-prop"><code>lang</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>SupportedLanguage</code>
+<strong>Description:</strong> Language code used for displaying suggestions and results.
+Supports ISO 639-1 codes like <code>'en'</code>, <code>'de'</code>, <code>'fr'</code>, <code>'es'</code>.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">lang</span><span class="o">=</span><span class="p">{</span><span class="nx">language</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">language</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;fr&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// French</span>
+</span></code></pre></div>
+<h3 id="limit-prop"><code>limit</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>number</code>
+<strong>Description:</strong> Maximum number of suggestions to display in the dropdown.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">limit</span><span class="o">=</span><span class="p">{</span><span class="nx">maxSuggestions</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">maxSuggestions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="debouncedelay-prop"><code>debounceDelay</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>number</code>
+<strong>Description:</strong> Time in milliseconds to wait after user input before triggering a new API request.
+Helps prevent excessive requests during fast typing.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">debounceDelay</span><span class="o">=</span><span class="p">{</span><span class="nx">debounceTime</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">debounceTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="filterbycountrycode-prop"><code>filterByCountryCode</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>ByCountryCodeOptions</code>
+<strong>Description:</strong> Restricts suggestions to specific country codes (ISO 3166-1 alpha-2).</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">filterByCountryCode</span><span class="o">=</span><span class="p">{</span><span class="nx">allowedCountries</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">allowedCountries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;US&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CA&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// Only show addresses in the US and Canada</span>
+</span></code></pre></div>
+<h3 id="filterbycircle-prop"><code>filterByCircle</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>ByCircleOptions</code>
+<strong>Description:</strong> Limits search results to a circular area around a specific coordinate.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">filterByCircle</span><span class="o">=</span><span class="p">{</span><span class="nx">cityCenterFilter</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cityCenterFilter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nx">lon</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">73.935242</span><span class="p">,</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nx">lat</span><span class="o">:</span><span class="w"> </span><span class="mf">40.73061</span><span class="p">,</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="nx">radiusMeters</span><span class="o">:</span><span class="w"> </span><span class="mf">10000</span><span class="w"> </span><span class="c1">// 10 km radius</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="filterbyrect-prop"><code>filterByRect</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>ByRectOptions</code>
+<strong>Description:</strong> Restricts results to a rectangular bounding box defined by two corner coordinates.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">filterByRect</span><span class="o">=</span><span class="p">{</span><span class="nx">nycBoundingBox</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">nycBoundingBox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nx">lon1</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">74.25909</span><span class="p">,</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nx">lat1</span><span class="o">:</span><span class="w"> </span><span class="mf">40.4774</span><span class="p">,</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nx">lon2</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">73.70027</span><span class="p">,</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="nx">lat2</span><span class="o">:</span><span class="w"> </span><span class="mf">40.91758</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="filterbyplace-prop"><code>filterByPlace</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>string</code>
+<strong>Description:</strong> Filters results by a specific Geoapify place ID, restricting search to that area.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">filterByPlace</span><span class="o">=</span><span class="p">{</span><span class="nx">placeId</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">placeId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;51c4a8dee5136e3f4059e511b0eb34354440f00101f9014d270000000000c00208&#39;</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="biasbyproximity-prop"><code>biasByProximity</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>ByProximityOptions</code>
+<strong>Description:</strong> Prioritizes suggestions that are geographically closer to a given point.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">biasByProximity</span><span class="o">=</span><span class="p">{</span><span class="nx">userLocation</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">userLocation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">lon</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">73.935242</span><span class="p">,</span><span class="w"> </span><span class="nx">lat</span><span class="o">:</span><span class="w"> </span><span class="mf">40.73061</span><span class="w"> </span><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="biasbycountrycode-prop"><code>biasByCountryCode</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>ByCountryCodeOptions</code>
+<strong>Description:</strong> Suggests results from specific countries first, while still including others.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">biasByCountryCode</span><span class="o">=</span><span class="p">{</span><span class="nx">preferredCountries</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">preferredCountries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;US&#39;</span><span class="p">];</span>
+</span></code></pre></div>
+<h3 id="biasbycircle-prop"><code>biasByCircle</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>ByCircleOptions</code>
+<strong>Description:</strong> Prefers results inside a given circle but still shows matches from other areas.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">biasByCircle</span><span class="o">=</span><span class="p">{</span><span class="nx">focusArea</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">focusArea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="nx">lon</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">73.935242</span><span class="p">,</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span><span class="nx">lat</span><span class="o">:</span><span class="w"> </span><span class="mf">40.73061</span><span class="p">,</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">  </span><span class="nx">radiusMeters</span><span class="o">:</span><span class="w"> </span><span class="mf">5000</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="biasbyrect-prop"><code>biasByRect</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>ByRectOptions</code>
+<strong>Description:</strong> Prioritizes results from within a rectangular area.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">biasByRect</span><span class="o">=</span><span class="p">{</span><span class="nx">preferredRegion</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">preferredRegion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">  </span><span class="nx">lon1</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">74.05</span><span class="p">,</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">  </span><span class="nx">lat1</span><span class="o">:</span><span class="w"> </span><span class="mf">40.68</span><span class="p">,</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">  </span><span class="nx">lon2</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">73.85</span><span class="p">,</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="w">  </span><span class="nx">lat2</span><span class="o">:</span><span class="w"> </span><span class="mf">40.85</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="skipicons-prop"><code>skipIcons</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>boolean</code>
+<strong>Description:</strong> Hides category and location icons in suggestion items. Useful for minimal or custom UI designs.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">skipIcons</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="adddetails-prop"><code>addDetails</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>boolean</code>
+<strong>Description:</strong> When <code>true</code>, includes detailed place information (e.g., <code>formatted</code>, <code>country</code>, <code>postcode</code>) in search results.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">addDetails</span><span class="o">=</span><span class="p">{</span><span class="nx">includeDetails</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">includeDetails</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="allownonverifiedhousenumber-prop"><code>allowNonVerifiedHouseNumber</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>boolean</code>
+<strong>Description:</strong> Allows users to enter and select house numbers not verified in the Geoapify database.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">allowNonVerifiedHouseNumber</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="allownonverifiedstreet-prop"><code>allowNonVerifiedStreet</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>boolean</code>
+<strong>Description:</strong> Permits users to enter unverified or incomplete street names.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">allowNonVerifiedStreet</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="skipselectiononarrowkey-prop"><code>skipSelectionOnArrowKey</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>boolean</code>
+<strong>Description:</strong> Prevents automatic selection when navigating suggestions with arrow keys.
+Useful if you want users to confirm a selection manually with <em>Enter</em>.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">skipSelectionOnArrowKey</span><span class="o">=</span><span class="p">{</span><span class="kc">false</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="addcategorysearch-prop"><code>addCategorySearch</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>boolean</code>
+<strong>Description:</strong> Enables <strong>category-based search</strong> (Points of Interest) using the Geoapify Places API.
+When active, users can type categories like "restaurant", "hotel", or "park".</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">addCategorySearch</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="showplacesbycategorylist-prop"><code>showPlacesByCategoryList</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>boolean</code>
+<strong>Description:</strong> Displays a list of matching POIs under the input field when category search is enabled.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">    </span><span class="na">addCategorySearch</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">    </span><span class="na">showPlacesByCategoryList</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">  </span><span class="p">/&gt;</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="hideplacesbycategorylistafterselect-prop"><code>hidePlacesByCategoryListAfterSelect</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>boolean</code>
+<strong>Description:</strong> Automatically hides the POI list once a place is selected, creating a cleaner user experience.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">    </span><span class="na">addCategorySearch</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">    </span><span class="na">showPlacesByCategoryList</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="w">    </span><span class="na">hidePlacesByCategoryListAfterSelect</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="w">  </span><span class="p">/&gt;</span>
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="enableplacesbycategorylazyloading-prop"><code>enablePlacesByCategoryLazyLoading</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>boolean</code>
+<strong>Description:</strong> Loads more POI results dynamically as the user scrolls or requests additional data.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">    </span><span class="na">addCategorySearch</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">    </span><span class="na">showPlacesByCategoryList</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="w">    </span><span class="na">enablePlacesByCategoryLazyLoading</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="w">  </span><span class="p">/&gt;</span>
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<h3 id="placesbycategorylimit-prop"><code>placesByCategoryLimit</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>number</code>
+<strong>Description:</strong> Maximum number of places (POIs) displayed when category search is enabled.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="w">    </span><span class="na">addCategorySearch</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="w">    </span><span class="na">placesByCategoryLimit</span><span class="o">=</span><span class="p">{</span><span class="nx">maxPlaces</span><span class="p">}</span>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="w">  </span><span class="p">/&gt;</span>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">maxPlaces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="placesbycategoryfilter-prop"><code>placesByCategoryFilter</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>object</code>
+<strong>Description:</strong> Defines filters for category-based searches, such as location or category constraints.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span>
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">    </span><span class="na">addCategorySearch</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">    </span><span class="na">placesByCategoryFilter</span><span class="o">=</span><span class="p">{</span><span class="nx">placesByCategoryFilter</span><span class="p">}</span>
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="w">  </span><span class="p">/&gt;</span>
+</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">placesByCategoryFilter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">  </span><span class="nx">filter</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">circle</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">lon</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">73.935242</span><span class="p">,</span><span class="w"> </span><span class="nx">lat</span><span class="o">:</span><span class="w"> </span><span class="mf">40.73061</span><span class="p">,</span><span class="w"> </span><span class="nx">radiusMeters</span><span class="o">:</span><span class="w"> </span><span class="mf">5000</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="placesbycategorybias-prop"><code>placesByCategoryBias</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>object</code>
+<strong>Description:</strong> Adds bias rules for category-based search, prioritizing results in certain areas.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="w">    </span><span class="na">addCategorySearch</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">    </span><span class="na">placesByCategoryBias</span><span class="o">=</span><span class="p">{</span><span class="nx">placesByCategoryBias</span><span class="p">}</span>
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="w">  </span><span class="p">/&gt;</span>
+</span><span id="__span-42-6"><a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">placesByCategoryBias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">  </span><span class="nx">bias</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">proximity</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">lon</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">73.935242</span><span class="p">,</span><span class="w"> </span><span class="nx">lat</span><span class="o">:</span><span class="w"> </span><span class="mf">40.73061</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="preprocesshook-prop"><code>preprocessHook</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>(value: string) =&gt; string</code>
+<strong>Description:</strong> A function that modifies user input before sending the geocoding request.
+Useful for appending contextual data or standardizing input.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">preprocessHook</span><span class="o">=</span><span class="p">{</span><span class="nx">preprocessInput</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">preprocessInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">value</span><span class="si">}</span><span class="sb">, New York, USA`</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="postprocesshook-prop"><code>postprocessHook</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>(feature: any) =&gt; string</code>
+<strong>Description:</strong> A function that processes or reformats the selected place before it's displayed in the input field.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">postprocessHook</span><span class="o">=</span><span class="p">{</span><span class="nx">formatResult</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">formatResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">feature</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">feature</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">street</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">feature</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">city</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="suggestionsfilter-prop"><code>suggestionsFilter</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>(features: any[]) =&gt; any[]</code>
+<strong>Description:</strong> Filters or modifies the suggestion list before display.
+Can be used to remove duplicates or limit certain results.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">suggestionsFilter</span><span class="o">=</span><span class="p">{</span><span class="nx">filterSuggestions</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">filterSuggestions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">features</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">unique</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">();</span>
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">features</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">f</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">street</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">f</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">street</span><span class="p">;</span>
+</span><span id="__span-49-5"><a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">unique</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">street</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</span><span id="__span-49-6"><a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a><span class="w">    </span><span class="nx">unique</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">street</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+</span><span id="__span-49-7"><a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-49-8"><a id="__codelineno-49-8" name="__codelineno-49-8" href="#__codelineno-49-8"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-49-9"><a id="__codelineno-49-9" name="__codelineno-49-9" href="#__codelineno-49-9"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="sendgeocoderrequestfunc-prop"><code>sendGeocoderRequestFunc</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>(value: string, geocoderAutocomplete: GeocoderAutocomplete) =&gt; Promise&lt;any&gt;</code>
+<strong>Description:</strong> Custom function to override the default geocoder request behavior.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">sendGeocoderRequestFunc</span><span class="o">=</span><span class="p">{</span><span class="nx">customGeocoderRequest</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">customGeocoderRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">geocoder</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="w">  </span><span class="c1">// Custom implementation</span>
+</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="sb">`https://api.geoapify.com/v1/geocode/autocomplete?text=</span><span class="si">${</span><span class="nx">value</span><span class="si">}</span><span class="sb">&amp;apiKey=YOUR_KEY`</span><span class="p">)</span>
+</span><span id="__span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+</span><span id="__span-51-5"><a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="sendplacedetailsrequestfunc-prop"><code>sendPlaceDetailsRequestFunc</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>(feature: any, geocoderAutocomplete: GeocoderAutocomplete) =&gt; Promise&lt;any&gt;</code>
+<strong>Description:</strong> Custom function to override the default place details request behavior.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">sendPlaceDetailsRequestFunc</span><span class="o">=</span><span class="p">{</span><span class="nx">customDetailsRequest</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">customDetailsRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span><span class="w"> </span><span class="nx">geocoder</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="w">  </span><span class="c1">// Custom implementation</span>
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="sb">`https://api.geoapify.com/v2/place-details?id=</span><span class="si">${</span><span class="nx">feature</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">place_id</span><span class="si">}</span><span class="sb">&amp;apiKey=YOUR_KEY`</span><span class="p">)</span>
+</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="sendplacesbycategoryrequestfunc-prop"><code>sendPlacesByCategoryRequestFunc</code> (Prop)</h3>
+<p><strong>Type:</strong> <code>(category: string[], offset: number, geocoderAutocomplete: GeocoderAutocomplete) =&gt; Promise&lt;any&gt;</code>
+<strong>Description:</strong> Custom function to override the default places by category request behavior.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">sendPlacesByCategoryRequestFunc</span><span class="o">=</span><span class="p">{</span><span class="nx">customPlacesRequest</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">customPlacesRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">category</span><span class="p">,</span><span class="w"> </span><span class="nx">offset</span><span class="p">,</span><span class="w"> </span><span class="nx">geocoder</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="w">  </span><span class="c1">// Custom implementation</span>
+</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="sb">`https://api.geoapify.com/v2/places?categories=</span><span class="si">${</span><span class="nx">category</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="si">}</span><span class="sb">&amp;limit=20&amp;apiKey=YOUR_KEY`</span><span class="p">)</span>
+</span><span id="__span-55-4"><a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+</span><span id="__span-55-5"><a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="placeselect-callback"><code>placeSelect</code> (Callback)</h3>
+<p><strong>Type:</strong> <code>(feature: any) =&gt; void</code>
+<strong>Description:</strong> Triggered when a user selects a place from the autocomplete suggestions.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">placeSelect</span><span class="o">=</span><span class="p">{</span><span class="nx">onPlaceSelected</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">onPlaceSelected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">place</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Selected place:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">place</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">formatted</span><span class="p">);</span>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="suggestionschange-callback"><code>suggestionsChange</code> (Callback)</h3>
+<p><strong>Type:</strong> <code>(features: any[]) =&gt; void</code>
+<strong>Description:</strong> Fired whenever the list of suggestions changes, for example, when the user types or modifies input.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">suggestionsChange</span><span class="o">=</span><span class="p">{</span><span class="nx">onSuggestionsChange</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">onSuggestionsChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">suggestions</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Updated suggestions:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">suggestions</span><span class="p">);</span>
+</span><span id="__span-59-3"><a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="onuserinput-callback"><code>onUserInput</code> (Callback)</h3>
+<p><strong>Type:</strong> <code>(input: string) =&gt; void</code>
+<strong>Description:</strong> Emits every time the user types or modifies text in the input field.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">onUserInput</span><span class="o">=</span><span class="p">{</span><span class="nx">onUserInput</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-60-3"><a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">onUserInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-61-2"><a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;User input:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">);</span>
+</span><span id="__span-61-3"><a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="onopen-callback"><code>onOpen</code> (Callback)</h3>
+<p><strong>Type:</strong> <code>(opened: boolean) =&gt; void</code>
+<strong>Description:</strong> Fired when the suggestions dropdown opens.
+You can use this to apply styles or track UI state.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">onOpen</span><span class="o">=</span><span class="p">{</span><span class="nx">onDropdownOpen</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-62-3"><a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">onDropdownOpen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">isOpen</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Dropdown opened:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">isOpen</span><span class="p">);</span>
+</span><span id="__span-63-3"><a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="onclose-callback"><code>onClose</code> (Callback)</h3>
+<p><strong>Type:</strong> <code>(opened: boolean) =&gt; void</code>
+<strong>Description:</strong> Fired when the suggestions dropdown closes.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-64-2"><a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">onClose</span><span class="o">=</span><span class="p">{</span><span class="nx">onDropdownClose</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-64-3"><a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">onDropdownClose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">isClosed</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-65-2"><a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Dropdown closed:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">isClosed</span><span class="p">);</span>
+</span><span id="__span-65-3"><a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="onrequeststart-callback"><code>onRequestStart</code> (Callback)</h3>
+<p><strong>Type:</strong> <code>(query: string) =&gt; void</code>
+<strong>Description:</strong> Fires when a geocoding request begins (after the debounce delay).
+Useful for showing loading indicators.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">onRequestStart</span><span class="o">=</span><span class="p">{</span><span class="nx">onRequestStart</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-66-3"><a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">onRequestStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">query</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-67-2"><a id="__codelineno-67-2" name="__codelineno-67-2" href="#__codelineno-67-2"></a><span class="w">  </span><span class="nx">setLoading</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span><span id="__span-67-3"><a id="__codelineno-67-3" name="__codelineno-67-3" href="#__codelineno-67-3"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="onrequestend-callback"><code>onRequestEnd</code> (Callback)</h3>
+<p><strong>Type:</strong> <code>(success: boolean, data?: any, error?: any) =&gt; void</code>
+<strong>Description:</strong> Fires when a geocoding request finishes, regardless of success or failure.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-68-2"><a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">onRequestEnd</span><span class="o">=</span><span class="p">{</span><span class="nx">onRequestEnd</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-68-3"><a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">onRequestEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">success</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-69-2"><a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a><span class="w">  </span><span class="nx">setLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span><span id="__span-69-3"><a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="onplacesbycategorychange-callback"><code>onPlacesByCategoryChange</code> (Callback)</h3>
+<p><strong>Type:</strong> <code>(places: any[]) =&gt; void</code>
+<strong>Description:</strong> Emits a list of POI (Places of Interest) results when category search is active.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-70-2"><a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span>
+</span><span id="__span-70-3"><a id="__codelineno-70-3" name="__codelineno-70-3" href="#__codelineno-70-3"></a><span class="w">    </span><span class="na">addCategorySearch</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-70-4"><a id="__codelineno-70-4" name="__codelineno-70-4" href="#__codelineno-70-4"></a><span class="w">    </span><span class="na">onPlacesByCategoryChange</span><span class="o">=</span><span class="p">{</span><span class="nx">onPlacesLoaded</span><span class="p">}</span>
+</span><span id="__span-70-5"><a id="__codelineno-70-5" name="__codelineno-70-5" href="#__codelineno-70-5"></a><span class="w">  </span><span class="p">/&gt;</span>
+</span><span id="__span-70-6"><a id="__codelineno-70-6" name="__codelineno-70-6" href="#__codelineno-70-6"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">onPlacesLoaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">places</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-71-2"><a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Loaded places:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">places</span><span class="p">);</span>
+</span><span id="__span-71-3"><a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="onplacesbycategoryrequeststart-callback"><code>onPlacesByCategoryRequestStart</code> (Callback)</h3>
+<p><strong>Type:</strong> <code>(category: Category) =&gt; void</code>
+<strong>Description:</strong> Triggered when a Places API request starts.
+Useful for showing a loading spinner while fetching nearby POIs.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-72-2"><a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span>
+</span><span id="__span-72-3"><a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a><span class="w">    </span><span class="na">addCategorySearch</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-72-4"><a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a><span class="w">    </span><span class="na">onPlacesByCategoryRequestStart</span><span class="o">=</span><span class="p">{</span><span class="nx">onPlacesLoadingStart</span><span class="p">}</span>
+</span><span id="__span-72-5"><a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a><span class="w">  </span><span class="p">/&gt;</span>
+</span><span id="__span-72-6"><a id="__codelineno-72-6" name="__codelineno-72-6" href="#__codelineno-72-6"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">onPlacesLoadingStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">category</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-73-2"><a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a><span class="w">  </span><span class="nx">setIsPlacesLoading</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span><span id="__span-73-3"><a id="__codelineno-73-3" name="__codelineno-73-3" href="#__codelineno-73-3"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="onplacesbycategoryrequestend-callback"><code>onPlacesByCategoryRequestEnd</code> (Callback)</h3>
+<p><strong>Type:</strong> <code>(success: boolean, data?: any, error?: any) =&gt; void</code>
+<strong>Description:</strong> Fired when a Places API request completes (whether successful or not).</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-74-2"><a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span>
+</span><span id="__span-74-3"><a id="__codelineno-74-3" name="__codelineno-74-3" href="#__codelineno-74-3"></a><span class="w">    </span><span class="na">addCategorySearch</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-74-4"><a id="__codelineno-74-4" name="__codelineno-74-4" href="#__codelineno-74-4"></a><span class="w">    </span><span class="na">onPlacesByCategoryRequestEnd</span><span class="o">=</span><span class="p">{</span><span class="nx">onPlacesLoadingEnd</span><span class="p">}</span>
+</span><span id="__span-74-5"><a id="__codelineno-74-5" name="__codelineno-74-5" href="#__codelineno-74-5"></a><span class="w">  </span><span class="p">/&gt;</span>
+</span><span id="__span-74-6"><a id="__codelineno-74-6" name="__codelineno-74-6" href="#__codelineno-74-6"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">onPlacesLoadingEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">success</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-75-2"><a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a><span class="w">  </span><span class="nx">setIsPlacesLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span><span id="__span-75-3"><a id="__codelineno-75-3" name="__codelineno-75-3" href="#__codelineno-75-3"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Places request finished successfully:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">success</span><span class="p">);</span>
+</span><span id="__span-75-4"><a id="__codelineno-75-4" name="__codelineno-75-4" href="#__codelineno-75-4"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="onplacedetailsrequeststart-callback"><code>onPlaceDetailsRequestStart</code> (Callback)</h3>
+<p><strong>Type:</strong> <code>(feature: any) =&gt; void</code>
+<strong>Description:</strong> Fires when a <strong>place details</strong> request begins — for example, when extra data for a POI is being fetched.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-76-2"><a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">onPlaceDetailsRequestStart</span><span class="o">=</span><span class="p">{</span><span class="nx">onDetailsRequestStart</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-76-3"><a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">onDetailsRequestStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">feature</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-77-2"><a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a><span class="w">  </span><span class="nx">setIsLoadingDetails</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span><span id="__span-77-3"><a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="onplacedetailsrequestend-callback"><code>onPlaceDetailsRequestEnd</code> (Callback)</h3>
+<p><strong>Type:</strong> <code>(success: boolean, data?: any, error?: any) =&gt; void</code>
+<strong>Description:</strong> Fires when a <strong>place details</strong> request completes, whether successful or not.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-78-2"><a id="__codelineno-78-2" name="__codelineno-78-2" href="#__codelineno-78-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">onPlaceDetailsRequestEnd</span><span class="o">=</span><span class="p">{</span><span class="nx">onDetailsRequestEnd</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-78-3"><a id="__codelineno-78-3" name="__codelineno-78-3" href="#__codelineno-78-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">onDetailsRequestEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">success</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-79-2"><a id="__codelineno-79-2" name="__codelineno-79-2" href="#__codelineno-79-2"></a><span class="w">  </span><span class="nx">setIsLoadingDetails</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span><span id="__span-79-3"><a id="__codelineno-79-3" name="__codelineno-79-3" href="#__codelineno-79-3"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Details request success:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">success</span><span class="p">);</span>
+</span><span id="__span-79-4"><a id="__codelineno-79-4" name="__codelineno-79-4" href="#__codelineno-79-4"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="onplacebycategoryselect-callback"><code>onPlaceByCategorySelect</code> (Callback)</h3>
+<p><strong>Type:</strong> <code>(value: {place: any, index: number}) =&gt; void</code>
+<strong>Description:</strong> Fired when a POI is selected from the <strong>places list</strong> (not from the address suggestions).
+Provides both the selected place and its index in the list.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-80-2"><a id="__codelineno-80-2" name="__codelineno-80-2" href="#__codelineno-80-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span>
+</span><span id="__span-80-3"><a id="__codelineno-80-3" name="__codelineno-80-3" href="#__codelineno-80-3"></a><span class="w">    </span><span class="na">addCategorySearch</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-80-4"><a id="__codelineno-80-4" name="__codelineno-80-4" href="#__codelineno-80-4"></a><span class="w">    </span><span class="na">onPlaceByCategorySelect</span><span class="o">=</span><span class="p">{</span><span class="nx">onPlaceFromListSelected</span><span class="p">}</span>
+</span><span id="__span-80-5"><a id="__codelineno-80-5" name="__codelineno-80-5" href="#__codelineno-80-5"></a><span class="w">  </span><span class="p">/&gt;</span>
+</span><span id="__span-80-6"><a id="__codelineno-80-6" name="__codelineno-80-6" href="#__codelineno-80-6"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">onPlaceFromListSelected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">place</span><span class="p">,</span><span class="w"> </span><span class="nx">index</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-81-2"><a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Selected POI:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">place</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;at index&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">index</span><span class="p">);</span>
+</span><span id="__span-81-3"><a id="__codelineno-81-3" name="__codelineno-81-3" href="#__codelineno-81-3"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="onclear-callback"><code>onClear</code> (Callback)</h3>
+<p><strong>Type:</strong> <code>(type: ItemType) =&gt; void</code>
+<strong>Description:</strong> Fired when the input field or selection is cleared by the user.</p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="p">&lt;</span><span class="nt">GeoapifyContext</span><span class="w"> </span><span class="na">apiKey</span><span class="o">=</span><span class="s">&quot;YOUR_API_KEY&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-82-2"><a id="__codelineno-82-2" name="__codelineno-82-2" href="#__codelineno-82-2"></a><span class="w">  </span><span class="p">&lt;</span><span class="nt">GeoapifyGeocoderAutocomplete</span><span class="w"> </span><span class="na">onClear</span><span class="o">=</span><span class="p">{</span><span class="nx">onCleared</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-82-3"><a id="__codelineno-82-3" name="__codelineno-82-3" href="#__codelineno-82-3"></a><span class="p">&lt;/</span><span class="nt">GeoapifyContext</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">onCleared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-83-2"><a id="__codelineno-83-2" name="__codelineno-83-2" href="#__codelineno-83-2"></a><span class="w">  </span><span class="nx">setSelectedPlace</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</span><span id="__span-83-3"><a id="__codelineno-83-3" name="__codelineno-83-3" href="#__codelineno-83-3"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Input cleared, type:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="p">);</span>
+</span><span id="__span-83-4"><a id="__codelineno-83-4" name="__codelineno-83-4" href="#__codelineno-83-4"></a><span class="p">};</span>
+</span></code></pre></div>
+<h2 id="learn-more">Learn More</h2>
+<p>You've now explored all available props and callbacks of the React Geocoder Autocomplete component.
+Continue with the following guides to see how to apply them in real projects:</p>
+<ul>
+<li><a href="../quick-start/">Quick Start</a> – set up the component in your React app.</li>
+<li><a href="../examples/">Examples</a> – explore common use cases and live configurations.</li>
+<li><a href="../standalone-usage/">Standalone Usage</a> – learn how to use the underlying JavaScript library without React.</li>
+<li><a href="https://apidocs.geoapify.com/docs/geocoding">Geoapify Geocoding API Docs</a> – discover the full range of address and place search features available through the API.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/geoapify" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "navigation.expand"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
