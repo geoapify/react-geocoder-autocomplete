@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
 import DemoIndex from './components/DemoIndex';
 import AddressFormDemo from './components/AddressFormDemo';
 import EventsShowcaseDemo from './components/EventsShowcaseDemo';
@@ -9,14 +8,21 @@ import './App.css';
 
 const App = () => {
   const [theme, setTheme] = useState('round-borders');
-  const location = useLocation();
-  const isIndexPage = location.pathname === '/' || location.pathname === '/demos';
+  const [pathname, setPathname] = useState(window.location.pathname);
+  const isIndexPage = pathname === '/' || pathname === '/demos';
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('geocoder-theme') || 'round-borders';
     setTheme(savedTheme);
     loadTheme(savedTheme);
-  }, [location.pathname]);
+  }, [pathname]);
+
+  useEffect(() => {
+    const handlePopState = () => setPathname(window.location.pathname);
+    window.addEventListener('popstate', handlePopState);
+
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   const loadTheme = (themeName) => {
     // Remove existing theme links
@@ -25,7 +31,7 @@ const App = () => {
     // Add new theme link
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = `https://unpkg.com/@geoapify/geocoder-autocomplete@3.0.1/styles/${themeName}.css`;
+    link.href = `https://unpkg.com/@geoapify/geocoder-autocomplete@3.1.0/styles/${themeName}.css`;
     link.setAttribute('data-geocoder-theme', 'true');
     document.head.appendChild(link);
 
@@ -43,17 +49,29 @@ const App = () => {
     loadTheme(newTheme);
   };
 
+  const navigate = (path) => {
+    window.history.pushState({}, '', path);
+    setPathname(path);
+  };
+
+  const renderPage = () => {
+    switch (pathname) {
+      case '/demos/address-form':
+        return <AddressFormDemo />;
+      case '/demos/events-showcase':
+        return <EventsShowcaseDemo />;
+      case '/demos/playground':
+        return <PlaygroundDemo />;
+      default:
+        return <DemoIndex onNavigate={navigate} />;
+    }
+  };
+
   return (
     <div className="app">
       {!isIndexPage && <ThemeSelector selectedTheme={theme} onThemeChange={handleThemeChange} />}
-      
-      <Routes>
-        <Route path="/" element={<DemoIndex />} />
-        <Route path="/demos" element={<DemoIndex />} />
-        <Route path="/demos/address-form" element={<AddressFormDemo />} />
-        <Route path="/demos/events-showcase" element={<EventsShowcaseDemo />} />
-        <Route path="/demos/playground" element={<PlaygroundDemo />} />
-      </Routes>
+
+      {renderPage()}
     </div>
   );
 };

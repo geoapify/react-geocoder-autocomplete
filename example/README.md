@@ -1,5 +1,28 @@
-This example was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Geocoder Autocomplete Example
 
-It is linked to the react-geocoder-autocomplete package in the parent directory for development purposes.
+This Vite application demonstrates the local `@geoapify/react-geocoder-autocomplete` package from the parent directory.
 
-You can run `npm install` and then `npm start` to test your package.
+## Run locally
+
+1. Replace the demo key in `src/config.js` with your Geoapify API key.
+2. Install and start the example:
+
+   ```bash
+   npm install
+   npm start
+   ```
+
+3. Open [http://localhost:3000](http://localhost:3000).
+
+The example links React, React DOM, and the component library from the repository root. After changing the library source, rebuild it from the root:
+
+```bash
+npm run build
+```
+
+## Production build
+
+```bash
+npm run build
+npm run preview
+```

@@ -21,11 +21,17 @@ To use the component, you need a **Geoapify API key**.
 1. Sign up at [myprojects.geoapify.com](https://myprojects.geoapify.com/) and create a project.
 2. Copy your API key from the project dashboard.
 3. Start with the **Free plan** (5 requests/sec) and upgrade as needed.
-4. Store the key securely — for example, in an `.env` file:
+4. Store the key in your framework's client-side environment configuration. For example, with Vite:
 
 ```bash
-REACT_APP_GEOAPIFY_KEY=YOUR_API_KEY
+VITE_GEOAPIFY_KEY=YOUR_API_KEY
 ```
+
+```jsx
+const apiKey = import.meta.env.VITE_GEOAPIFY_KEY;
+```
+
+Client-side API keys are visible in the browser, so configure suitable key restrictions in your Geoapify project.
 
 ## Integrating the Component into Your React Project
 
@@ -142,4 +148,3 @@ Now that you've added the component and verified it works, you can:
    * [Geocoding API](https://apidocs.geoapify.com/docs/geocoding)
    * [Places API](https://apidocs.geoapify.com/docs/places)
    * [Geoapify Playground](https://apidocs.geoapify.com/playground/geocoding)
-

@@ -1,12 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './DemoIndex.css';
 
-const DemoIndex = () => {
-  const navigate = useNavigate();
-
+const DemoIndex = ({ onNavigate }) => {
   const selectDemo = (demoType) => {
-    navigate(`/demos/${demoType}`);
+    onNavigate(`/demos/${demoType}`);
   };
 
   return (
@@ -114,4 +111,3 @@ const DemoIndex = () => {
 };
 
 export default DemoIndex;
-

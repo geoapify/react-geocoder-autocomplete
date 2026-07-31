@@ -25,7 +25,7 @@ It provides an easy-to-use React wrapper for the [Geoapify Geocoding Autocomplet
 * Customizable design: easily style or theme your component.
 * Accessible with keyboard navigation and ARIA support.
 * Rich results including coordinates, structured address, and metadata.
-* Compatible with React 18–19.
+* Compatible with React 19.
 
 ## Quick Start
 
@@ -69,7 +69,7 @@ Wrap your component with the `GeoapifyContext` and provide your API key:
 </GeoapifyContext>
 ```
 
-Tip: Store your API key in an environment variable and reference it as `process.env.REACT_APP_GEOAPIFY_KEY` for better maintainability.
+Tip: Store your API key in your framework's client-side environment configuration (for example, `import.meta.env.VITE_GEOAPIFY_KEY` in Vite). Client-side API keys are visible in the browser, so configure suitable key restrictions in your Geoapify project.
 
 ### 4. Use the component
 
@@ -110,7 +110,7 @@ const onSuggestionsChange = (list) => {
 | 1.2.x – 1.3.x                         | >= 17.0.0            |
 | 1.4.x – 1.5.x                         | >= 18.0.0            |
 | 2.0.x – 2.2.x                         | >= 18.0.0, <= 19.x.x |
-| 3.0.x                                 | >= 19.0.0, <= 19.x.x |
+| 3.0.x – 3.1.x                         | >= 19.0.0, <= 19.x.x |
 
 > If you prefer to use the library directly without React bindings, check the **[Standalone Usage](https://geoapify.github.io/react-geocoder-autocomplete/standalone-usage/)** section.
 
@@ -133,7 +133,7 @@ The component includes many options for configuration and customization. Below a
 | Property              | Direction | Description                                                                       |
 | --------------------- | --------- | --------------------------------------------------------------------------------- |
 | `placeholder`         | Prop      | Sets the placeholder text for the input field.                                    |
-| `type`                | Prop      | Defines the type of location to search for — e.g. `city`, `street`, or `amenity`. |
+| `type`                | Prop      | Defines the type of location to search for — e.g. `city`, `locality`, `street`, or `amenity`. |
 | `lang`                | Prop      | Sets the language of suggestions and results.                                     |
 | `limit`               | Prop      | Limits the number of suggestions displayed.                                       |
 | `debounceDelay`       | Prop      | Adds a short delay before sending requests, improving performance.                |
@@ -279,7 +279,9 @@ Adds boundary or geometry data (where available) to the selected feature.
   <GeoapifyGeocoderAutocomplete
     addCategorySearch={true}
     showPlacesByCategoryList={true}
-    placesByCategoryFilter={{ categories: ['cafe', 'restaurant'] }}
+    placesByCategoryFilter={{
+      circle: { lon: 13.405, lat: 52.52, radiusMeters: 5000 }
+    }}
     onPlaceByCategorySelect={onPoiSelected}
   />
 </GeoapifyContext>
@@ -291,7 +293,7 @@ const onPoiSelected = ({ place, index }) => {
 };
 ```
 
-Enables category-based search for nearby Points of Interest (POIs) below the input field, filtered by category.
+Enables category-based search and displays nearby Points of Interest (POIs) below the input. The circle filter restricts results to five kilometers around central Berlin.
 
 **Used properties:**
 `addCategorySearch`, `showPlacesByCategoryList`, `placesByCategoryFilter`, `onPlaceByCategorySelect`
@@ -345,7 +347,7 @@ const onClear = (item) => {
 ```tsx
 <GeoapifyContext apiKey="YOUR_API_KEY">
   <GeoapifyGeocoderAutocomplete
-    filterByCountryCode={['DE']}
+    filterByCountryCode={['de']}
     biasByProximity={{ lon: 13.405, lat: 52.52 }}
     addDetails={true}
     placeSelect={onPlaceSelected}

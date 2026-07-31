@@ -266,4 +266,3 @@ const EventsShowcaseDemo = () => {
 };
 
 export default EventsShowcaseDemo;
-

@@ -5,7 +5,7 @@ Use this guide to set up a local workstation and verify changes before publishin
 
 ## 1. Prerequisites
 
-- Node.js 18+ and npm 10+
+- Node.js 20.19+ or 22.12+ and npm 10+
 - For the documentation site: Python 3.9+ with `pip`
 
 ## 2. Install Dependencies
@@ -14,7 +14,7 @@ Use this guide to set up a local workstation and verify changes before publishin
 npm install
 ```
 
-This installs all workspace packages, including the demo app dependencies.
+This installs the library dependencies. The demo app has its own dependency tree under `example/`.
 
 ## 3. Build the Library
 
@@ -28,8 +28,10 @@ npm run build
 
 ## 4. Run Quality Gates
 
-- **Unit tests:** `npm run test`
-- **Linting:** `npm run lint`
+- **Complete test pipeline:** `npm test`
+- **Unit tests only:** `npm run test:unit`
+- **Linting only:** `npm run test:lint`
+- **Build only:** `npm run build`
 
 These should be clean before submitting changes or publishing.
 
@@ -50,7 +52,7 @@ The demo showcases three interactive examples:
    npm install
    npm start      # serves the demo on http://localhost:3000
    ```
-3. The demo watches both the library and app; rebuilding the library will refresh the demo automatically.
+3. The demo links to the library in the parent directory. After changing the library source, run `npm run build` from the repository root; Vite will then reload the linked output.
 
 ## 6. Preview / Build the Documentation Site
 

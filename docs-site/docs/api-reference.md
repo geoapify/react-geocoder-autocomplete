@@ -8,7 +8,7 @@ The React Geocoder Autocomplete component exposes several **props** and **callba
 | ----------------------------- | ---------------------------------------------------- | --------- | ---------------------------------------------------------------- |
 | `value`                       | `string`                                             | Prop      | Current value of the input field.                                |
 | `placeholder`                 | `string`                                             | Prop      | Text shown when the input is empty.                              |
-| `type`                        | `LocationType`                                       | Prop      | Type of place to search for (`country`, `city`, `street`, etc.). |
+| `type`                        | `LocationType`                                       | Prop      | Type of place to search for (`country`, `state`, `city`, `locality`, `postcode`, `street`, or `amenity`). |
 | `lang`                        | `SupportedLanguage`                                  | Prop      | Language of suggestions and results.                             |
 | `limit`                       | `number`                                             | Prop      | Max number of suggestions to show.                               |
 | `debounceDelay`               | `number`                                             | Prop      | Delay (ms) before sending requests after typing.                 |
@@ -20,6 +20,8 @@ The React Geocoder Autocomplete component exposes several **props** and **callba
 | `biasByCountryCode`           | `ByCountryCodeOptions`                               | Prop      | Prioritize results from certain countries.                       |
 | `biasByCircle`                | `ByCircleOptions`                                    | Prop      | Bias results within a circle.                                    |
 | `biasByRect`                  | `ByRectOptions`                                      | Prop      | Bias results within a rectangle.                                 |
+| `position`                    | `GeoPosition`                                        | Prop      | Deprecated alias for `biasByProximity`.                          |
+| `countryCodes`                | `CountyCode[]`                                       | Prop      | Deprecated alias for `filterByCountryCode`.                      |
 | `skipIcons`                   | `boolean`                                            | Prop      | Hide icons in the suggestions list.                              |
 | `addDetails`                  | `boolean`                                            | Prop      | Include detailed place info in results.                          |
 | `allowNonVerifiedHouseNumber` | `boolean`                                            | Prop      | Allow house numbers not verified in data.                        |
@@ -30,8 +32,8 @@ The React Geocoder Autocomplete component exposes several **props** and **callba
 | `hidePlacesByCategoryListAfterSelect`   | `boolean`                                            | Prop      | Hide POI list after selection.                                   |
 | `enablePlacesByCategoryLazyLoading`     | `boolean`                                            | Prop      | Load additional POI items dynamically.                           |
 | `placesByCategoryLimit`                 | `number`                                             | Prop      | Max number of POIs to display.                                   |
-| `placesByCategoryFilter`                | `object`                                             | Prop      | Filters for category-based search.                               |
-| `placesByCategoryBias`                  | `object`                                             | Prop      | Bias rules for category-based search.                            |
+| `placesByCategoryFilter`                | `Record<string, ByCircleOptions \| ByRectOptions \| string>` | Prop | Geographic filters for category-based search. |
+| `placesByCategoryBias`                  | `Record<string, ByCircleOptions \| ByRectOptions \| ByProximityOptions>` | Prop | Geographic bias rules for category-based search. |
 | `preprocessHook`              | `(value: string) => string`                          | Prop      | Modify input before request.                                     |
 | `postprocessHook`             | `(feature: any) => string`                           | Prop      | Modify selected result before display.                           |
 | `suggestionsFilter`           | `(features: any[]) => any[]`                         | Prop      | Filter suggestions before display.                               |
@@ -98,7 +100,7 @@ const placeholderText = 'Search for a location';
 ### `type` (Prop)
 
 **Type:** `LocationType`
-**Description:** Defines the type of place to search for — such as `'country'`, `'city'`, `'postcode'`, `'street'`, or `'amenity'`.
+**Description:** Defines the type of place to search for: `'country'`, `'state'`, `'city'`, `'locality'`, `'postcode'`, `'street'`, or `'amenity'`.
 
 **Example:**
 
@@ -181,7 +183,7 @@ const debounceTime = 400;
 ```
 
 ```jsx
-const allowedCountries = ['US', 'CA']; // Only show addresses in the US and Canada
+const allowedCountries = ['us', 'ca']; // Only show addresses in the US and Canada
 ```
 
 
@@ -279,7 +281,7 @@ const userLocation = { lon: -73.935242, lat: 40.73061 };
 ```
 
 ```jsx
-const preferredCountries = ['US'];
+const preferredCountries = ['us'];
 ```
 
 
@@ -325,6 +327,26 @@ const preferredRegion = {
   lon2: -73.85,
   lat2: 40.85
 };
+```
+
+### `position` (Deprecated Prop)
+
+**Type:** `GeoPosition`
+**Description:** Deprecated alias for `biasByProximity`. Use `biasByProximity` in new code.
+
+```jsx
+<GeoapifyGeocoderAutocomplete
+  biasByProximity={{ lon: -73.935242, lat: 40.73061 }}
+/>
+```
+
+### `countryCodes` (Deprecated Prop)
+
+**Type:** `CountyCode[]`
+**Description:** Deprecated alias for `filterByCountryCode`. Use `filterByCountryCode` in new code.
+
+```jsx
+<GeoapifyGeocoderAutocomplete filterByCountryCode={['us', 'ca']} />
 ```
 
 ### `skipIcons` (Prop)
@@ -483,8 +505,8 @@ const maxPlaces = 10;
 
 ### `placesByCategoryFilter` (Prop)
 
-**Type:** `object`
-**Description:** Defines filters for category-based searches, such as location or category constraints.
+**Type:** `Record<string, ByCircleOptions | ByRectOptions | string>`
+**Description:** Defines geographic filters for category-based searches. Supported keys are `circle`, `rect`, `place`, and `geometry`.
 
 **Example:**
 
@@ -499,13 +521,13 @@ const maxPlaces = 10;
 
 ```jsx
 const placesByCategoryFilter = {
-  filter: { circle: { lon: -73.935242, lat: 40.73061, radiusMeters: 5000 } }
+  circle: { lon: -73.935242, lat: 40.73061, radiusMeters: 5000 }
 };
 ```
 
 ### `placesByCategoryBias` (Prop)
 
-**Type:** `object`
+**Type:** `Record<string, ByCircleOptions | ByRectOptions | ByProximityOptions>`
 **Description:** Adds bias rules for category-based search, prioritizing results in certain areas.
 
 **Example:**
@@ -521,7 +543,7 @@ const placesByCategoryFilter = {
 
 ```jsx
 const placesByCategoryBias = {
-  bias: { proximity: { lon: -73.935242, lat: 40.73061 } }
+  proximity: { lon: -73.935242, lat: 40.73061 }
 };
 ```
 

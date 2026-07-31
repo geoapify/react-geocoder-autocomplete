@@ -200,6 +200,7 @@ const PlaygroundDemo = () => {
         <div className="options">
           <label><input type="radio" value="country" name="type" /> Country</label>
           <label><input type="radio" value="city" name="type" /> City</label>
+          <label><input type="radio" value="locality" name="type" /> Locality</label>
           <label><input type="radio" value="amenity" name="type" /> Amenity</label>
         </div>
       </div>
@@ -356,4 +357,3 @@ const PlaygroundDemo = () => {
 }
 
 export default PlaygroundDemo;
-

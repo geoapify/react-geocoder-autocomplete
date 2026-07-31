@@ -27,7 +27,7 @@ It's designed to offer a fast, accessible, and customizable autocomplete experie
 
 * **Rich structured output** – Emits detailed selection events containing coordinates, formatted addresses, and Geoapify metadata that can be directly used in your app logic.
 
-* **React compatibility** – Works with React 18 and newer versions. The recommended setup is **React 18+** for the best performance and API alignment.
+* **React compatibility** – Version 3.x supports React 19. See the compatibility table in the project README when using an earlier React release.
 
 ## Learn More
 
@@ -38,4 +38,3 @@ It's designed to offer a fast, accessible, and customizable autocomplete experie
 - [Geoapify Geocoding API documentation](https://apidocs.geoapify.com/docs/geocoding/)
 - [GitHub repository](https://github.com/geoapify/react-geocoder-autocomplete)
 - [Geoapify Developer Portal](https://www.geoapify.com/)
-

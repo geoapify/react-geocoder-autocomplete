@@ -284,9 +284,9 @@ export const GeoapifyGeocoderAutocomplete = ({
     }
   },[]);
 
-  const onPlaceByCategorySelect = React.useCallback((value: {place: any, index: number}) => {
+  const onPlaceByCategorySelect = React.useCallback((place: any, index: number) => {
     if (placeByCategorySelectCallbackRef.current) {
-      placeByCategorySelectCallbackRef.current(value);
+      placeByCategorySelectCallbackRef.current({ place, index });
     }
   },[]);
 
@@ -359,6 +359,8 @@ export const GeoapifyGeocoderAutocomplete = ({
         geocoderAutocomplete.current.off("place_details_request_end", onPlaceDetailsRequestEnd);
         geocoderAutocomplete.current.off("place_select", onPlaceByCategorySelect);
         geocoderAutocomplete.current.off("clear", onClear);
+        geocoderAutocomplete.current.destroy();
+        geocoderAutocomplete.current = undefined;
       }
     };
   }, []);
